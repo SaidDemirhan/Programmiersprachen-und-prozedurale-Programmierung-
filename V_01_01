@@ -1,0 +1,371 @@
+V_01_01
+Programmierung(1)
+Agenda
+	Erste Grundbegriffe İlk temel terimler
+Programmieren versus Codieren Programlamaya karşı kodlama
+Variablen değişkenler
+Variable-Typ değişken türleri
+Zuweisungs-Operator atama operatörü
+
+	Erste Fertigkeiten İlk Beceriler
+Erstes Erstellen eines PAP Bir PAP'nin ilk oluşturulması
+Erstes Erstellen eines Struktogramms Bir yapı grafiğinin ilk oluşturulması
+Erstes Erstellen eines Pseudocodes Sözde kodun ilk oluşturulması
+Ausführliches Training + Ergebnisbesprechung 
+Ayrıntılı eğitim + sonuçların tartışılması
+Fachpraktische Anwendungen Teknik pratik uygulamalar
+
+Programmieren versus Codieren Programlamaya karşı kodlama
+Werden im beruflichen Alltag oft nicht unterschieden … streng genommen gilt jedoch:
+Genellikle günlük işlerde farklılaşmazlar ... tam olarak söylemek gerekirse, aşağıdakiler geçerlidir:
+ „Programmieren“ meint das Planen sowie (graphische, und/oder sprachliche) Beschreiben aller Arbeitsschritte, die zur Lösung eines gegebenen Problems abzuarbeiten sind:
+"Programlama", belirli bir sorunu çözmek için tamamlanması gereken tüm çalışma adımlarını (grafik ve/veya dilsel olarak) planlamak ve açıklamak anlamına gelir:
+ „Codieren“ hingegen meint das Übersetzen dieses graphischen Plans
+“Kodlama” ise bu grafik planı tercüme etmek demektir.
+…in eine für den Computer (oder Compiler / Interpreter) verständliche Sprache …
+…bilgisayarın (veya derleyicinin/tercümanın) anlayabileceği bir dile…
+... sowie das Implementieren (Eintragen) dieser Übersetzung in den Rechner
+... ve bu çeviriyi bilgisayara uygulamak (girmek)
+
+Programmieren FIRST … Codieren SECOND 
+İLK programlama … kodlama İKİNCİ
+Wie im „normalen Leben“: erst Planen – dann Ausführen
+“Normal hayatta” olduğu gibi: önce planlayın – sonra uygulayın 
+Mit dem Programmieren zu starten, hat folgende Vorteile:
+Programlama ile başlamak aşağıdaki avantajlara sahiptir:
+Programme sind „Sprach-übergreifend“, also im besten Falle international verständlich
+Programlar "diller arasıdır", yani en iyi durumda uluslararası düzeyde anlaşılabilir
+Programme sind „Computersprachen-übergreifend“, also in unterschiedliche (Programmier)-Sprachen übersetzbar
+Programlar "bilgisayarlar arası dillerdir", yani farklı (programlama) dillerine çevrilebilirler.
+Allerdings: Diese Reihenfolge wird in der beruflichen Praxis nicht immer konsequent durchgehalten …
+Ancak: Bu sıra mesleki uygulamada her zaman tutarlı bir şekilde izlenmez...
+… wir werden dies in unserem Kurs jedoch anders halten, denn:
+… ama bunu kursumuzda farklı yapacağız, çünkü:
+Mit der Programmierung zu starten hilft, sich auf die Programmier-Logik zu konzentrieren
+Programlamaya başlamak, programlama mantığına odaklanmaya yardımcı olur
+Ein (bereits bestehendes) Programm hilft, sich beim Codieren auf die dort geltenden Regeln zu konzentrieren
+Bir (mevcut) program, kodlama sırasında orada geçerli olan kurallara odaklanmaya yardımcı olur
+Das Training des (reinen) Programmierens ist für die IHK-Abschlussprüfung von großer Bedeutung, da dort (im Rahmen der ja nur schriftlich abgehaltenen Prüfung) kein Codieren möglich seien wird
+(Saf) programlama eğitimi, IHK final sınavı için büyük önem taşımaktadır, çünkü orada kodlama mümkün olmayacaktır (sınavın bir parçası olarak, sadece yazılı olarak yapılır).
+
+EDV = Elektronische Daten-Verarbeitung VARIABLEN
+EDV = elektronik veri işleme DEĞİŞKENLERİ
+Wer ein Programm schreibt, der wird im wesentlichen mit Daten arbeiten
+Bir program yazan herkes aslında verilerle çalışacaktır.
+Um mit Daten arbeiten zu können, müssen diese „vorliegen“, also abgespeichert werden
+Verilerle çalışabilmesi için "mevcut" olması, yani kaydedilmiş olması gerekir.
+Eine Abspeicherung von Daten geschieht …
+Veriler kaydedilir...
+… technisch betrachtet in den „Speicherstellen“ des Computers
+... teknik açıdan bilgisayarın "bellek konumlarında"
+… aus Sicht des Programmierers in sogenannten „Variablen“
+... sözde "değişkenlerde" programcının bakış açısından
+Um abgespeicherte Daten auswählen, bzw. „ansprechen“ zu können, werden …
+Depolanan verileri seçebilmek veya "adresleyebilmek" için, ...
+… technisch gesehen alle Speicherstellen mit eindeutigen Zahlenwerten („Adressen“) versehen
+… teknik açıdan, tüm bellek konumlarına benzersiz sayısal değerler ("adresler") sağlayın
+… vom Programmierer Variablen eingeführt, denen er selbstgewählte (Variable)-Namen gibt
+... programcı tarafından tanıtılan ve kendi seçtiği (değişken) isimler verdiği değişkenler
+Die Bezeichnung Variable (=„Veränderliche“) spielt darauf an, dass sich der abgespeicherte Wert einer Variablen während des Programmablaufes verändern kann (was dann aber natürlich nicht zufällig geschieht, sondern vom Programmierer so vorgesehen ist)
+Değişken (= "değişken") terimi, bir değişkenin saklanan değerinin program çalışması sırasında değişebileceği gerçeğini ima eder (bu elbette tesadüfen olmaz, ancak programcı tarafından amaçlanır)
+
+Variable – TYPEN Değişken - TÜRLER
+Wenn eine Variable eingeführt wird, so muss festgelegt werden, „was“ sie speichern soll
+Bir değişken tanıtıldığında, saklanacağı "ne" olduğu belirtilmelidir.
+Dabei werden wir in diesem Baustein die folgenden 4 Variable-Typen unterscheiden:
+Bu blokta aşağıdaki 4 değişken türü arasında ayrım yapacağız:
+Variable vom Typ Integer: ……………………. Variable, die (nur!) eine einzige ganze Zahl abspeichern kann
+Tamsayı türü değişken: ……………………. Tek bir tamsayı (yalnızca!) depolayabilen değişken
+Variable vom Typ Float (oder Double): …….... Variable, die (nur!) eine einzige Kommazahl abspeichern kann
+Float (veya double) tipi değişken: …….... Tek bir ondalık sayıyı (yalnızca!) depolayabilen değişken
+Variable vom Typ Character: ………………...... Variable, die (nur!) ein einziges Zeichen abspeichern kann
+(Beispiele sind: Buchstaben, Ziffern, Satzzeichen …)
+Değişken tipi Karakter: ………………. Tek bir karakter (sadece!) depolayabilen değişken (Örnekler: harfler, sayılar, noktalama işaretleri...)
+Hinweise: İpuçları:
+a) Der menschliche Leser eines Programms kann mitdenken
+a) Bir programın insan okuyucusu onunla birlikte düşünebilir
+=> Variable-Typ muss beim Programmieren nicht ausdrücklich erwähnt werden
+=> Programlama sırasında değişken tipinin açıkça belirtilmesi gerekmez
+b) Ein Computer kann nicht mitdenken
+b) Bir bilgisayar birlikte düşünemez
+=> Variable-Typ muss beim Codieren ausdrücklich erwähnt werden
+(damit der Rechner den jeweils notwendigen Speicherplatz reservieren kann)
+=> Kodlama yapılırken değişken tipi açıkça belirtilmelidir
+(bilgisayarın gerekli depolama alanını rezerve edebilmesi için)
+
+Variable – ZUWEISUNG (von „konkreten Werten“ = „Literale“)
+Değişken – ASSIGNMENT(atama) ("somut değerler" = "literaller"den)
+Wenn wir eine Variable in unser Programm einführen, so ist diese zunächst noch undefiniert.
+Programımıza bir değişken eklediğimizde, başlangıçta tanımsızdır.
+Undefinierte Variablen sind nicht „leer“ sondern besitzen einen von uns unbeeinflussten Wert.
+Tanımsız değişkenler "boş" değildir ancak bizden etkilenmeyen bir değere sahiptir.
+Um dies zu ändern, müssen wir den Variablen einen Startwert zuweisen. Dies geschieht durch den sogenannten Zuweisungs-Operator, der in den meisten Programmier-Sprachen mit dem Gleichheitszeichen-Symbol (=) dargestellt wird.
+Bunu değiştirmek için değişkenlere bir tohum değeri atamamız gerekiyor. Bu, çoğu programlama dilinde eşittir işareti sembolü (=) ile temsil edilen sözde atama operatörü kullanılarak yapılır.
+Beispiele: 
+Die Schreibweise a=5 bedeutet, dass der Variable a nun der (ganzzahlige) Wert 5 zugewiesen wurde
+a=5 gösterimi, a değişkenine şimdi (tamsayı) 5 değeri atandığı anlamına gelir.
+Die Schreibweise preis=9.95 bedeutet, dass der Variable preis nun der (Komma)-Wert 9.95 zugewiesen wurde
+Fiyat=9.95 gösterimi, değişken fiyata şimdi (virgül) 9.95 değeri atandığı anlamına gelir.
+Hinweis: Kommazahlen müssen in der Regel (zumindest innerhalb der Codierung) entsprechend der angelsächsischen Schreibweise mit einem Punkt (statt Komma) notiert werden. Innerhalb der Programmierung ist dies nicht zwingend, aber empfehlenswert!
+Not: Kural olarak, ondalık sayılar (en azından kodlama içinde) Anglo-Sakson notasyonuna uygun olarak (virgül yerine) bir nokta ile belirtilmelidir. Programlama içinde bu zorunlu değildir, ancak önerilir!
+Die Schreibweise meinLieblingsZeichen=‘q‘ bedeutet, dass der Variable meinLieblingsZeichen nun der (Character)-Wert ‘q‘ zugewiesen wurde
+myFavoriteChar='q' gösterimi, myFavoriteChar değişkenine artık (karakter) değeri 'q' atandığı anlamına gelir.
+Hinweis: Einzelne Zeichen müssen in der Regel (zumindest innerhalb der Codierung) mit „einfachen Anführungszeichen“ (= „Hochkommata“) notiert werden. Auch hier gilt: Innerhalb der Programmierung ist dies nicht zwingend, aber empfehlenswert!
+Not: Bireysel karakterler genellikle (en azından kodlama içinde) "tek tırnak işareti" (= "ters virgül") ile belirtilmelidir. Aynısı burada da geçerlidir: Programlama içinde bu zorunlu değildir, ancak önerilir!
+
+Variable – ZUWEISUNG (von Werten anderer Variablen)
+Wir können einer Variablen auch den Wert einer anderen Variable (vom selben Typ) zuweisen
+Dies macht freilich nur Sinn, wenn die zugewiesene Variable bereits einen definierten Wert besitzt
+Değişken - ATAMA (diğer değişkenlerin değerlerinin)
+Bir değişkene başka bir değişkenin (aynı türden) değerini de atayabiliriz.
+Tabii ki, bu yalnızca atanan değişkenin zaten tanımlanmış bir değeri varsa anlamlıdır.
+
+Beispiele:
+Angenommen der Variable a wurde der Wert 22 zugewiesen:
+a=22
+dann bedeutet die Schreibweise …
+b=a
+… dass der Variablen b der Wert von a (in diesem Fall also 22) zugewiesen wurde
+=> a und b speichern nun also den selben Wert.
+Angenommen der Variable zeichen1 wurde der Wert ‘x‘ zugewiesen:
+zeichen1=‘x‘
+dann bedeutet die Schreibweise …
+zeichen2=zeichen1
+… dass der Variablen zeichen2 der Wert von zeichen1 (in diesem Fall also ‘x‘) zugewiesen wurde
+=> zeichen1 und zeichen2 speichern nun also den selben Wert.
+Örnekler:
+a değişkenine 22 değeri atandığını varsayalım:
+a=22
+o zaman yazım anlamı...
+b=a
+... b değişkenine a değeri atanmış (bu durumda 22).
+=> a ve b şimdi aynı değeri saklar.
+Karakter1 değişkenine 'x' değeri atandığını varsayarsak:
+karakter1='x'
+o zaman yazım anlamı...
+karakter2=karakter1
+... işaret2 değişkenine işaret1 değeri atanmış (yani bu durumda 'x').
+=> sign1 ve sign2 şimdi aynı değeri saklar.
+Variable – ZUWEISUNG (von Werten, die sich durch mathematische Operationen ergeben)
+Değişken - ATAMA (matematiksel işlemlerden kaynaklanan değerlerin)
+Wir können einer (Zahlen)-Variablen (vom Typ Integer, Float oder Double) auch ein Rechenergebnis zuweisen
+Bir (sayı) değişkene (tamsayı, kayan nokta veya çift tipi) bir hesaplama sonucu da atayabiliriz.
+Wir wollen zu Beginn des Bausteins zunächst nur die folgenden (arithmetischen) Operatoren verwenden:
+Bloğun başında sadece aşağıdaki (aritmetik) operatörleri kullanmak istiyoruz:
+Variable – ZUWEISUNG (von Werten, die sich durch mathematische Operationen ergeben)
+Değişken - ATAMA (matematiksel işlemlerden kaynaklanan değerler)
+Wir können einer (Zahlen)-Variablen (vom Typ Integer, Float oder Double) auch ein Rechenergebnis zuweisen
+Bir (sayı) değişkene (tamsayı, kayan nokta veya çift tipi) bir hesaplama sonucu da atayabiliriz.
+Wir wollen zu Beginn des Bausteins zunächst nur die folgenden (arithmetischen) Operatoren verwenden: 
+Bloğun başında sadece aşağıdaki (aritmetik) operatörleri kullanmak istiyoruz:
+
+Operation	Symbol	Wirkung (bei Float/Double)	Wirkung (bei Integer)
+Addition („Plus-Rechnen“)	+	wie in der Mathematik	wie in der Mathematik
+Subtraktion („Minus-Rechnen“)	-	wie in der Mathematik	wie in der Mathematik
+Multiplikation („Malnehmen“)	*	wie in der Mathematik	wie in der Mathematik
+Division („Teilen“)	/	wie in der Mathematik	Nur ganzzahlige Lösung OHNE REST!
+
+islem		Efekt (Float/Double'da)	Efekt (tamsayılar için)
+Toplama ("artı hesaplama")	+	matematikte olduğu gibi	matematikte olduğu gibi
+Çıkarma ("eksi hesaplama")	-	matematikte olduğu gibi	matematikte olduğu gibi
+Çarpma ("çarpma")	*	matematikte olduğu gibi	matematikte olduğu gibi
+Bölme ("böl")	/	matematikte olduğu gibi	KALAN OLMADAN sadece tamsayı çözümü!
+Beispiele:
+a=5
+b=a+1 ( => b hat nun also den Wert 6)
+c=a-3 ( => c hat nun also den Wert 2)
+d=2*a ( => d hat nun also den Wert 10)
+e=a/2 ( => e hat nun also den Wert 2) 
+weitere Beispiele:
+a=3
+b=a+2 ( => b hat nun also den Wert 5)
+c=a-b ( => c hat nun also den Wert -2)
+d=a*a ( => d hat nun also den Wert 9)
+e=b/d ( => e hat nun also den Wert 0)	
+Örnekler:
+a=5
+b=a+1 ( => b şimdi 6 değerine sahip)
+c=a-3 ( => c şimdi 2 değerine sahip)
+d=2*a ( => d şimdi 10 değerine sahip)
+e=a/2 ( => e şimdi 2 değerine sahip)
+diğer örnekler:
+a=3
+b=a+2 ( => b şimdi 5 değerine sahip)
+c=a-b ( => c şimdi -2) değerine sahip
+d=a*a ( => d şimdi 9 değerine sahip
+e=b/d ( => e artık 0 değerine sahiptir)
+
+Wichtige Hinweise: Önemli talimatlar:
+a) Für jeder Art von Rechnung muss beim Codieren berücksichtigt werden, dass Zahlen nur bezüglich einer bestimmten maximalen Größe dargestellt werden können!
+a) Herhangi bir hesaplama türü için, sayıların yalnızca belirli bir maksimum boyuta göre temsil edilebileceği kodlanırken dikkate alınmalıdır!
+b) Bei Rechnungen mit Kommazahlen müssen Rundungsfehler berücksichtigt werden!
+b) Ondalık basamaklı hesaplamalarda yuvarlama hataları dikkate alınmalıdır!
+c) Beide Punkte können beim Programmieren ignoriert werden (und werden uns erst später beschäftigen)
+c) Programlama sırasında her iki nokta da göz ardı edilebilir (ve bunları daha sonra ele alacağız)
+
+Variable – ZUWEISUNG (von „reflexiven“ Ausdrücken)
+Değişken - ASSIGNMENT (Atama)("dönüşlü" ifadelerden)
+Wir können einer (Zahlen)-Variablen auch ein Rechenergebnis zuweisen, in dem diese Variable selbst vorkommt!
+Bir (sayı) değişkene, bu değişkenin kendisinin içinde bulunduğu bir hesaplama sonucu da atayabiliriz!
+Spätestens diese reflexive Verwendung macht dann deutlich, dass der Zuweisungs-Operator NICHT mit einem mathematischen Gleichheitszeichen verwechselt werden darf! 
+En geç bu dönüşlü kullanım, atama operatörünün matematiksel eşittir işaretiyle KARIŞTIRILMAMASI gerektiğini açıkça ortaya koymaktadır!
+Beispiele:
+a=1
+a=a+1 ( => a hat nun also den Wert 2)
+a=a-10 ( => a hat nun also den Wert -8)
+a=(-2)*a ( => a hat nun also den Wert 16)
+a=a/a ( => a hat nun also den Wert 1)
+Örnekler:
+a=1
+a=a+1 ( => a şimdi 2 değerine sahip)
+a=a-10 ( => a şimdi -8) değerine sahip
+a=(-2)*a ( => a şimdi 16 değerine sahip)
+a=a/a ( => a şimdi 1 değerine sahip)
+
+Variable – ZUWEISUNG (Zusammenfassung) Değişken - ATAMA (özet)
+Mit Hilfe des Zuweisungs-Operators kann einer Variable (erstmalig oder erneut) ein Wert zugewiesen werden
+Atama operatörü kullanılarak bir değişkene (ilk veya tekrar) bir değer atanabilir.
+Es können konkrete Werte (also „Literale“) zugewiesen werden
+Somut değerler (yani “literaller”) atanabilir
+Es können aber auch Werte anderer Variablen, bzw. die Ergebnisse aus Rechnungen zugewiesen werden
+Ancak diğer değişkenlerin değerleri veya hesaplama sonuçları da atanabilir.
+Insbesondere kann daher einer Variable auch ein (mathematischer) Ausdruck („reflexiv“) zugewiesen werden, innerhalb dessen diese Variable selbst vorkommt:
+Özellikle, bir (matematiksel) ifade ("dönüşlü"), içinde bu değişkenin kendisinin meydana geldiği bir değişkene de atanabilir:
+a=a+1 bedeutet dann aber eben NICHT, dass die linke Seite (a) „genauso groß“ wie die rechte Seite (a+1) sei (denn dies wäre ja auch Unsinn!), sondern meint lediglich, dass die Variable, die links steht (a), mit jenem Wert gefüllt wird, der rechts vom Zuweisungs- Operator notiert wurde, hier also mit dem Ergebnis von a+1.
+Ancak a=a+1, sol tarafın (a) sağ taraf (a+1) kadar “büyük” olduğu anlamına DEĞİL (çünkü bu da saçma olurdu!), ancak sadece soldaki değişkenin olduğu anlamına gelir. (a) atama operatörünün sağında belirtilen değer, bu durumda a+1 sonucu ile doldurulur.
+
+Variable(die gefüllt werden soll) = Wert (mit dem sie gefüllt werden soll)
+değişken(doldurulacak) = değer (doldurulacak)
+EVA-Prinzip: Eingabe -> Verarbeitung -> Ausgabe
+EVA prensibi: girdi -> işleme -> çıktı
+Viele Programmier-Anfänger teilen mit, dass es ihnen schwer fällt zu entscheiden, an welcher Stelle sie bei der Erstellung eines Programms beginnen sollen
+Birçok acemi programcı, bir program oluştururken nereden başlayacaklarına karar vermekte zorlandıklarını bildirmektedir.
+Hier könnte eventuell das sogenannte „Eva-Prinzip“ helfen, dass praktisch allen (interessanten) Programmen zu Grunde liegt:
+Pratik olarak tüm (ilginç) programların dayandığı sözde "Eva ilkesi" burada yardımcı olabilir:
+Ein Programm beginnt mit einer (User)-Eingabe => Das Programm erhält also jene Daten, mit denen es arbeiten soll
+Bir program (kullanıcı) girişi ile başlar => program birlikte çalışması gereken verileri alır
+Es folgt eine Verarbeitung der (Eingabe)-Daten => Zahlen-Daten könnten zur Berechnung herangezogen werden
+(Giriş) verileri daha sonra işlenir => hesaplama için sayı verileri kullanılabilir 
+=> Zeichen (bzw. Texte) können analysiert oder verändert werden
+=> Karakterler (veya metinler) analiz edilebilir veya değiştirilebilir
+Am Ende kommt es zu einer (Ergebnis)-Ausgabe => Die Rechenergebnisse oder Text-Resultate werden angezeigt
+Sonunda bir (sonuç) çıktısı vardır => Hesaplama sonuçları veya metin sonuçları görüntülenir.
+
+Didaktischer Hinweis:
+Wir werden zu Beginn dieses Bausteins die (interaktive) User-Eingabe noch durch eine („passive“) Variable- Zuweisung ersetzen. Die Werte der Variablen werden also noch nicht vom User bestimmt, sondern im Programm festgelegt. Diese Vorgehensweise hat den Vorteil, dass wir das EVA-Prinzip von Anfang an verfolgen können, ohne uns dabei codier-technisch zu überfordern …
+Ögretici not:
+Bu modülün başında, (etkileşimli) kullanıcı girdisini ("pasif") bir değişken ataması ile değiştireceğiz. Değişkenlerin değerleri henüz kullanıcı tarafından belirlenmemiştir ancak programda tanımlanmıştır. Bu yaklaşımın avantajı, kodlama konusunda kendimizi fazla zorlamadan EVA ilkesini en başından takip edebilmemizdir...
+Das Erstellen von Programmen – hilfreiche Software – Installation notwendig?
+Programların oluşturulması - yardımcı yazılımlar - kurulum gerekli mi?
+Wir wollen im folgenden 3 Darstellungsformen von Programmen kennenlernen, die wir gleichberechtigt trainieren werden, um umfassend auf die IHK-Abschlussprüfung vorzubereiten
+Aşağıda, IHK final sınavına kapsamlı bir şekilde hazırlanmak için eşit düzeyde eğiteceğimiz programların 3 sunum şeklini tanımak istiyoruz.
+Zu deren Erstellung werden Anwendungsprogramme hilfreich sein. Wir empfehlen die drei folgenden:
+Bunları oluşturmak için uygulama programları yardımcı olacaktır. Aşağıdaki üçünü öneriyoruz:
+ (die Sie zum Teil bereits auf Ihrem Rechner vorfinden werden)
+(bazılarını zaten bilgisayarınızda bulacaksınız)
+„ DIA“ – ein Grafiktool, das sich (unter anderem) zum Erstellen von Programmablaufplänen (PAP) eignet
+"DIA" - program akış çizelgeleri (PAP) oluşturmak için (diğer şeylerin yanı sıra) uygun bir grafik aracı.
+ „Structorizer“ – Zeichenwerkzeug zur Erstellung von Struktogrammen (benötigt JRE)
+"Structorizer" - yapı diyagramları oluşturmak için çizim aracı (JRE gerektirir)
+ „Notepad“ – Ein Texteditor, den wir für die Erstellung von Pseudocode verwenden
+"Not Defteri" - Sözde kod oluşturmak için kullanacağımız bir metin düzenleyici
+
+Bemerkungen: Notlar:
+Ø Sofern Sie im Umgang mit alternativen Tools bereits geübt sind, können Sie diese selbstverständlich an Stelle der vorgeschlagenen verwenden
+Ø Alternatif araçları kullanmaya zaten aşina iseniz, önerilenler yerine elbette bunları kullanabilirsiniz.
+Ø Auch handschriftliche Lösungen (selbiges entspricht der Situation in der IHK-Prüfung) sind natürlich zulässig. Voraussetzung sollte dann allerdings sein, dass Sie diese abfotografieren und hochladen können!
+Ø El yazısı çözümlere (aynısı IHK sınavındaki duruma tekabül ediyor) da tabii ki izin verilmektedir. Ancak ön koşul, onları fotoğraflayıp yükleyebilmeniz olmalıdır!
+
+Das Erstellen von Programmen – Musteraufgabe
+Wir werden uns nun mit den bereits angesprochenen 3 Darstellungsformen etwas näher befassen, dabei aber zunächst nur jene (graphischen oder schriftlichen) Notationen vorstellen, die wir zur Darstellung erster Übungsaufgaben benötigen.
+Program oluşturma - örnek görev
+Şimdi daha önce bahsedilen 3 temsil biçimiyle biraz daha yakından ilgileneceğiz, ancak başlangıçta yalnızca ilk alıştırmaların gösterimi için ihtiyaç duyduğumuz (grafik veya yazılı) gösterimleri sunacağız.
+
+Um die Verwendung der entsprechenden Symbole / Schreibweisen anschaulich einführen zu können, werden wir für alle drei Darstellungsformen jeweils eine Lösung der folgenden Musteraufgabe präsentieren:
+Karşılık gelen sembollerin / yazımların kullanımını açık bir şekilde tanıtabilmek için, üç temsil biçiminin her biri için aşağıdaki örnek göreve bir çözüm sunacağız:
+
+Musteraufgabe:
+Das Programm startet und füllt zunächst die Variablen a mit dem Wert 5 und b mit dem Wert 7.
+Anschließend wird die Summe von a+b berechnet und in der Variable c abgespeichert.
+Zum Schluss wird der Wert von c ausgegeben. Daraufhin endet das Programm
+Örnek görev:
+Program başlar ve önce a değişkenlerini 5 değeriyle ve b değişkenlerini 7 değeriyle doldurur.
+Daha sonra a+b toplamı hesaplanır ve c değişkenine kaydedilir.
+Son olarak, c'nin değeri çıktıdır. sonra program biter
+Programmablaufplan (PAP) – Erste Symbole
+Program akış şeması (PAP) - İlk semboller
+Jedes PAP startet mit einem (einzigen!) Start-Symbol:
+Her PAP (tek!) bir başlangıç sembolü ile başlar:
+Und sollte mit einem einzigen End-Symbol enden:
+Ve tek bir uç sembolü ile bitmelidir:
+Ein- und Ausgaben werden als Parallelogramme notiert:
+Girişler ve çıkışlar paralelkenar olarak belirtilmiştir:
+ 
+Der in den Parallelogrammen eingetragene Text teilt mit …
+Paralelkenarlara girilen metin bize şunu söylüyor...
+Eingabe: Welche Variable gefüllt werden soll
+Ausgabe: Von welcher Variable der Wert ausgegeben wird
+Girdi: Hangi değişken doldurulmalı
+Çıktı: Değerin hangi değişkenden çıktığı
+
+Programmablaufplan (PAP) – Erste Symbole
+Program akış şeması (PAP) - İlk semboller
+Zuweisungen (von Literalen oder Rechenergebnissen) werden als Vorgang bezeichnet und in Rechtecken notiert:
+Atamalar (değişmez veya aritmetik sonuçların) bir işlem olarak adlandırılır ve kutularda not edilir:
+Die Reihenfolge der Arbeitsschritte wird durch Pfeile dargestellt:
+İş adımlarının sırası oklarla gösterilir:
+Mit den (wenigen) weiteren Symbolen eines PAP werden wir uns erst in den nächsten Tagen beschäftigen
+Önümüzdeki birkaç gün içinde yalnızca (birkaç) diğer PAP sembolü ile ilgileneceğiz.
+Programmablaufplan (PAP) – Musterlösung
+Program akış şeması (PAP) – örnek çözüm
+
+Hinweis: Diese klassische Darstellung verzichtet auf Farben. Es ist aber auch zulässig, die Symbole farblich zu unterscheiden.
+Not: Bu klasik gösterimde renkler kullanılmaz. Bununla birlikte, sembolleri renklerine göre ayırt etmek de caizdir.
+
+Struktogramme (Nassi-Shneiderman-Diagramme) – Erste Symbole
+Struktogramlar (Nassi-Shneiderman diyagramları) – İlk semboller
+Struktogramme werden „von oben nach unten“ gelesen. Daher werden keine Symbole für „Start“ und „Ende“ benötigt. Ebenso wird auf Pfeile verzichtet.
+Struktogramlar "yukarıdan aşağıya" okunur. Bu nedenle, "Başlangıç" ve "Bitiş" simgeleri gerekli değildir. Ayrıca oklar da yok.
+Eingaben, Zuweisungen und Ausgaben werden alle mit einem Rechteck dargestellt:
+Girdiler, atamalar ve çıktıların tümü bir dikdörtgenle temsil edilir:
+ 
+Mit den weiteren Symbolen eines Struktogramms werden wir uns erst später beschäftigen
+Bir yapı şemasının diğer sembollerini daha sonra ele alacağız.
+
+Struktogramme (Nassi-Shneiderman-Diagramme) – Musterlösung
+Struktogramlar (Nassi-Shneiderman diyagramları) - örnek çözüm
+
+Pseudocode – Erste Schreibweisen 
+Sözde kod - İlk gösterimler
+Pseudocode ist eine schriftliche Form des Programmierens und arbeitet mit Texten, die an einen „echten“ (Quell)-Code erinnern sollen. Der Pseudocode richtet sich an Programmierer, ohne sich jedoch dabei festzulegen, welche Programmier-Sprachen diese Programmierer bereits beherrschen. Sözde kod, yazılı bir programlama biçimidir ve "gerçek" (kaynak) bir koda benzemesi amaçlanan metinlerle çalışır. Sözde kod, programcılara yöneliktir, ancak bu programcıların zaten bildiği hangi programlama dillerini belirtmeden. 
+Ziel ist es vielmehr, für möglichst jeden Programmierer verständlich zu sein.
+Bunun yerine amaç, mümkün olduğu kadar çok programcı için anlaşılabilir olmaktır.
+
+Ähnlich wie beim echten Quellcode wird auf ein gewisses „Layout“ geachtet, um die Lesbarkeit zu verbessern. Dies bedeutet vor allem, dass sogenannte Anweisungsblöcke durch geschweifte Klammern – also { und } - eingerahmt werden, so dass deutlich wird, wo ein solcher Block beginnt und wo er aufhört. Ferner werden alle Anweisungen, die zu diesem Block gehören, innerhalb der geschwungenen Klammer eingerückt notiert. (siehe hierzu die Musterlösung)
+Gerçek kaynak koduna benzer şekilde, okunabilirliği artırmak için belirli bir "düzen"e dikkat edilir. Her şeyden önce, bu, sözde talimat bloklarının küme parantezleri - yani { ve } - ile çerçevelendiği anlamına gelir, böylece böyle bir bloğun nerede başlayıp nerede bittiği açıktır. Ayrıca bu bloğa ait tüm ifadeler girintili olarak küme parantezleri içinde belirtilmiştir. (örnek çözüme bakın)
+
+Eingaben, Zuweisungen und Ausgaben werden so notiert, wie wir dies bereits beim PAP und Struktogrammen kennengelernt haben
+Girdiler, atamalar ve çıktılar, PAP ve structogramlardan öğrendiğimiz gibi aynı şekilde not edilir.
+
+Pseudocode – Musterlösung
+Sözde kod - örnek çözüm
+
+
+Hier beginnt der Anweisungsblock 
+İfade bloğunun başladığı yer burasıdır.
+Programm „Name des Programms“ (falls bekannt) 
+Program "Programın adı" (biliniyorsa)
+Breite der Einrückung: In der Regel 1 Tabulator-Schritt
+Girinti genişliği: Genellikle 1 tablo alanı
+Alle Anweisungen des Blocks werden eingerückt
+Bloktaki tüm ifadeler girintilidir
+Hier endet der Anweisungsblock
+İfade bloğunun bittiği yer burasıdır.
+Das Erstellen von Programmen – Aufgabe A_01_01_01
+Program oluşturma - görev A_01_01_01
+Wir werden nun zum Abschluss dieser Präsentation eine erste Übungsaufgabe gemeinsam bearbeiten, um insbesondere die Bedienung der Grafiktools zu trainieren.
+Bu sunumun sonunda, şimdi özellikle grafik araçlarını kullanarak alıştırma yapmak için birlikte bir ilk alıştırma üzerinde çalışacağız.
+Für diesen Zweck wird empfohlen, die gezeigten Arbeitsschritte parallel zu deren Vorführung eigenständig mit den gewählten Anwendungsprogrammen nachzustellen.
+Bu amaçla, seçilen uygulama programları ile gösterilen çalışma adımlarının gösterimlerine paralel olarak bağımsız olarak çoğaltılması önerilir.
+ 
+
