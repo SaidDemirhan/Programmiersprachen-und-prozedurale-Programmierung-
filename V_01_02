@@ -1,0 +1,220 @@
+V_01_02
+Programmierung(1)
+Agenda
+Datenspeicherung auf dem Rechner: Eine vereinfachte Darstellung
+Maschinensprache versus „Höhere Sprache“: Binärcode versus Quellcode
+Bilgisayarda veri depolama: Basitleştirilmiş bir gösterim
+Makine diline karşı "üst düzey dil": İkili koda karşı kaynak kodu
+Programmier-Paradigma: Imperative, Deklarative oder Objekt-orientierte Sprache
+Entwicklungsumgebung Code::Blocks (installieren!?): Editor, Compiler, Debugger, Linker, Ausgabe-Konsole
+Programlama paradigması: zorunlu, bildirimsel veya nesne yönelimli dil
+Geliştirme ortamı Code::Blocks (kurulum!?): düzenleyici, derleyici, hata ayıklayıcı, bağlayıcı, çıktı konsolu
+
+Der erste eigene Code İlk kendi kodu
+Aufbau des Quellcodes Kaynak kodun yapısı
+Hauptprogramm: main() Ana program:
+– Anweisungsblock – ifade bloğu
+– Anweisung- Talimat
+Präprozessoranweisung: include<…> Önişlemci yönergesi: include<…>
+Variable: Deklarieren, Definieren, Initialisieren Değişken: bildir, tanımla, başlat
+Zuweisung: Literale und/oder Ergebnisse von Rechenoperationen
+Tahsis: Harfler ve/veya aritmetik işlemlerin sonuçları
+Ausgabe: printf() Çıktı: printf()
+
+Formatierung: biçimlendirme:
+– String-Literale – Dize değişmezleri
+– Typen - türleri
+– Layout -Düzen
+
+Datenspeicherung auf dem Rechner Bilgisayarda veri depolama
+Die kleinste Speichereinheit auf einem Computer wird als Bit bezeichnet. Es handelt sich dabei technisch betrachtet um eine Art Schalter, der nur die beiden Zustände: …
+Bilgisayardaki en küçük depolama birimine bit denir. Teknik açıdan bakıldığında, bu sadece iki duruma sahip bir tür anahtardır: ...
+„geschlossen“(Strom fließt) oder
+„offen“(Strom fließt nicht)
+… annehmen kann.
+"kapalı" (akım akışları) veya
+"açık" (akım akmıyor)
+... kabul edilebilir.
+Diese beiden Zustände werden der Kürze wegen gerne mit den Ziffern 1 (für geschlossen) und 0 (für offen) dargestellt.
+Kısa olması için, bu iki durum genellikle 1 (kapalı için) ve 0 (açık için) sayılarıyla temsil edilir.
+Fasst man 8 Bit zusammen, so wird diese Speicherstelle als Byte bezeichnet. Da jedes Bit 2 Zustände annehmen kann, können durch ein Byte demnach „2 hoch 8“ = 256 Zustände unterschieden werden. Binäre Darstellung: 00000000, 00000001, 00000010, 00000011, … , 11111100, 11111101, 11111110,11111111
+8 biti özetlerseniz, bu bellek konumuna bayt denir. Her bit 2 duruma sahip olabileceğinden, "2 ila 8'in gücü" = 256 durum arasında ayrım yapmak için bir bayt kullanılabilir. İkili gösterim: 00000000, 00000001, 00000010, 00000011, … , 11111100, 11111101, 11111110,111111111
+Solche Bitfolgen können ganz unterschiedlich interpretiert werden. Sie können je nach Bedarf (bzw. nach gewünschter Festlegung) als Zeichen, Zahl oder auch Befehl verstanden werden. Letzteres werden wir uns nun anschauen, wenn es im Folgenden um Befehle (einer Maschinensprache) geht, die von einem Prozessor ausgeführt werden sollen:
+Bu tür bit dizileri çok farklı yorumlanabilir. Neye ihtiyaç duyulduğuna bağlı olarak (veya istenen tanıma göre) bir karakter, sayı veya komut olarak anlaşılabilirler. Şimdi, bir işlemci tarafından yürütülecek talimatlar (bir makine dilinin) söz konusu olduğunda ikincisine bakacağız:
+
+Maschinensprache versus „Höhere Sprache“
+Makine diline karşı "üst düzey dil"
+Eine Maschinensprache (bzgl. eines bestimmten Prozessortyps) bezeichnet den gesamten Umfang all jener Befehle, die der entsprechende Prozessor unmittelbar ausführen kann.
+Bir makine dili (belirli bir işlemci türüyle ilgili), ilgili işlemcinin doğrudan yürütebileceği tüm bu talimatların tüm kapsamını belirtir.
+Maschinensprachen-Befehle werden in der Regel als Bitfolge dargestellt, deren Länge sich nach dem Prozessortyp richtet (für gewöhnlich handelt es sich bei der Länge um ein Vielfaches von 8).
+Makine dili talimatları tipik olarak uzunluğu işlemci türüne bağlı olan bir bit dizisi olarak temsil edilir (genellikle uzunluk 8'in katıdır).
+Maschinensprache-Befehle führen allerdings üblicherweise nur sehr elementare Prozesse aus. Entsprechend arbeitet ein in Maschinensprache geschriebenes Programm vergleichsweise klein-schrittig. Daher ist die Erstellung eines solchen Programms oft recht aufwendig.
+Ancak, makine dili talimatları genellikle yalnızca çok temel işlemleri yürütür. Buna göre, makine dilinde yazılmış bir program nispeten küçük adımlarla çalışır. Bu nedenle, böyle bir programın oluşturulması genellikle oldukça zaman alıcıdır.
+„Höhere“ Sprachen umgehen dieses Problem, indem sie den Programmierer zunächst einen sogenannten Quellcode erzeugen lassen, der zum einen wesentlich größere Arbeitsschritte erlaubt, und zum anderen deutlich leichter lesbar ist. 
+"Daha yüksek" diller, programcının ilk önce bir yandan çok daha büyük çalışma adımlarına izin veren ve diğer yandan okunması çok daha kolay olan bir kaynak kodu oluşturmasına izin vererek bu sorunu ortadan kaldırır. 
+Da dieser Quellcode aber für einen Prozessor nicht ausführbar ist, wird er vor der Programm Ausführung (mittels Compiler) oder während der Ausführung (mittels Interpreter) in Maschinensprache übersetzt.
+Ancak bu kaynak kod bir işlemci tarafından yürütülemeyeceğinden, program yürütülmeden önce (derleyici kullanılarak) veya yürütme sırasında (bir yorumlayıcı kullanılarak) makine diline çevrilir.
+
+Hinweis:
+Die hohe Arbeitsgeschwindigkeit heutiger Computer macht das Codieren in Maschinensprache oft überflüssig. Immer dort aber, wo extreme Performance und/oder geringer Speicherplatzbedarf von großer Bedeutung ist, macht es Sinn, Programme (oder Teile von Programmen) in Maschinensprache zu schreiben.
+Bir uyarı:
+Günümüz bilgisayarlarının yüksek çalışma hızı, genellikle makine dilinde kodlamayı gereksiz kılar. Ancak, aşırı performans ve/veya düşük bellek gereksinimlerinin büyük önem taşıdığı durumlarda, programları (veya programların bölümlerini) makine dilinde yazmak mantıklıdır.
+
+Programmier-Paradigma (bzw. Philosophie, Konzept oder „Art und Weise“)
+Programlama paradigması (veya felsefe, kavram veya "tarz")
+Die älteste (und vielleicht auch noch verbreitetste) Art des Programmierens ist die sogenannte imperative (alternative Bezeichnung: prozedurale) Programmierung. 
+En eski (ve belki de en yaygın) programlama türü, sözde zorunlu (alternatif olarak: prosedürel olarak adlandırılan) programlamadır. 
+Sie arbeitet – wie der Name schon sagt – mit einer Abfolge von Befehlen und erinnert an ein Kochrezept, bei dem man der Reihe nach (bzw. „von oben nach unten“) alle Handlungsschritte auflistet. 
+Adından da anlaşılacağı gibi, bir dizi komutla çalışır ve tüm adımları sırayla (veya "yukarıdan aşağıya") listelediğiniz bir tarifi andırır. 
+Dies wird jenes Verfahren sein, mit dem wir uns (an Hand der Programmiersprache ANSI C) in diesem Baustein befassen werden.
+Bu modülde (ANSI C programlama dilini kullanarak) ele alacağımız prosedür bu olacaktır.
+
+Eine andere Philosophie des Programmierens verfolgen die sogenannten deklarativen Sprachen. Diese verlangen nicht, dass man Schritt für Schritt beschreibt, „wie“ ein Programm zum gewünschten Ziel gelangt. 
+Sözde bildirim dilleri, farklı bir programlama felsefesini takip eder. Bunlar, bir programın istenen amaca "nasıl" ulaştığına dair adım adım bir açıklama gerektirmez.
+Statt dessen genügt es, dieses Ziel zu beschreiben, da der Compiler/Interpreter anschließend eigenständig entscheidet, welche Arbeitsschritte zum Erreichen des Ziels nötig seien werden. (Beispiel für eine deklarative Sprache in dieser Umschulung ist die Datenbanksprache SQL)
+Bunun yerine, bu hedefi tanımlamak yeterlidir, çünkü derleyici/yorumlayıcı daha sonra hedefe ulaşmak için hangi çalışma adımlarının gerekli olduğuna bağımsız olarak karar verir. (Bu yeniden eğitimdeki bildirim diline örnek, veritabanı dili SQL'dir)
+
+Ein deutlich jüngeres (aber zunehmend an Bedeutung gewinnendes) Programmier-Konzept ist das der OOP (Objekt-Orientierte- Programmierung). Es arbeitet mit einem „Ordnungs-Prinzip“, dessen Grundlagen (siehe: „Strukturen“) wir auch bei ANSI C kennenlernen werden. (Beispiel für eine OOP-Sprache ist C#)
+Önemli ölçüde daha genç (ancak giderek daha önemli olan) bir programlama konsepti, OOP'dir (nesne yönelimli programlama). Temellerini (bkz: "Yapılar") ANSI C'de de öğreneceğimiz bir "düzen ilkesi" ile çalışır. (Bir OOP dili örneği C#'dır)
+
+Neben vieler weiterer Paradigmen, seien exemplarisch nur noch die „funktionale Programmierung“(basiert auf Rekursion) und „logische Programmierung“(insbesondere für mathematische Beweise) genannt.
+Diğer birçok paradigmaya ek olarak, sadece “fonksiyonel programlama” (özyinelemeye dayalı) ve “mantıksal programlama” (özellikle matematiksel ispatlar için) örnek olarak belirtilmiştir.
+
+Entwicklungsumgebung (IDE = Integrated Development Environment)
+Geliştirme ortamı (IDE = Entegre Geliştirme Ortamı)
+Wer einen Quellcode schreibt, der könnte dies in einem ganz gewöhnlichen Editor tun. Anschließend müsste er mit einem Compiler (gegebenenfalls unter Verwendung eines Präprozessor) diesen Code übersetzen lassen, mit einem Linker die einzelne Module seines Programms zusammenführen, eventuell mittels Debugger nach Fehlern suchen und die aus all diesen Vorarbeiten resultierende Datei schließlich noch abspeichern, um sie anschließend starten bzw. ausführen zu können.
+Kaynak kodu yazarsanız, bunu normal bir düzenleyicide yapabilirsiniz. Daha sonra bu kodu bir derleyiciyle (muhtemelen bir önişlemci kullanarak) tercüme ettirmesi, programının bireysel modüllerini bir bağlayıcı ile birleştirmesi, muhtemelen hataları aramak için bir hata ayıklayıcı kullanması ve son olarak tüm bu ön çalışmalardan kaynaklanan dosyayı kaydetmesi gerekir, daha sonra başlatmak veya yürütebilmek için emir verin.
+
+Da dies lästig ist, wurden Entwicklungsumgebungen entwickelt, mit denen all diese Funktionalitäten in einem einzigen Programm vereinigt wurden. 
+Bu bir sıkıntı olduğundan, tüm bu işlevleri tek bir programda birleştiren geliştirme ortamları geliştirilmiştir. 
+In der Regel reicht dann ein einziger „Klick“ um die obigen Arbeitsschritte der Reihe nach abarbeiten zu lassen.
+Tek bir "tıklama" genellikle yukarıdaki iş adımlarının sırayla işlenmesi için yeterlidir.
+
+Wir wollen in diesem Baustein mit der IDE Code::Blocks arbeiten, die Sie bitte herunterladen, sofern sich diese nicht bereits auf ihrem Rechner befindet.
+Bu modülde, bilgisayarınızda yoksa indirmeniz gereken IDE Code::Blocks ile çalışmak istiyoruz.
+
+Hinweis: Nach der Installation wird möglicherweise der Compiler nicht gefunden. In diesem Fall navigieren Sie bitte bis:
+Not: Kurulumdan sonra derleyici bulunamayabilir. Bu durumda lütfen şuraya gidin:
+Settings/Compiler/Toolchain executables klicken dort auf den Button Auto-detect und bestätigen dies anschließend mit „OK“
+Ayarlar/Derleyici/Araç zinciri yürütülebilir dosyaları Otomatik algıla düğmesine tıklayın ve ardından "Tamam" ile onaylayın.
+
+Der erste eigene Code – Aufbau des Quellcodes 
+İlk kendi kodu - kaynak kodun yapısı
+Vorbemerkungen: Ön açıklamalar:
+Der Quellcode besteht aus den im Folgenden dargestellten Abschnitten, die wir uns der Einfachheit halber „graphisch animiert“ anschauen werden.
+Kaynak kodu, basitlik adına "grafiksel olarak canlandırılmış" olarak bakacağımız aşağıda gösterilen bölümlerden oluşmaktadır.
+
+Selbstverständlich werden wir aber nach dieser PowerPoint-Präsentation auch eine gemeinsame praktische Übung absolvieren, bevor Sie anschließend durch weitere Einzelübungen Gelegenheit bekommen, das hier Vorgestellte ausführlich zu trainieren.
+Tabii ki, bu PowerPoint sunumundan sonra, burada ayrıntılı olarak sunulanları daha sonraki bireysel alıştırmalarla uygulama fırsatına sahip olmadan önce birlikte pratik bir alıştırmayı da tamamlayacağız.
+
+Darüber hinaus gilt, dass die am heutigen Tag vermittelten Inhalte bei praktisch allen kommenden Codierungs- Aufgaben von Bedeutung seien werden. Damit ist dann aber auch deren regelmäßige Wiederholung gesichert.
+Ek olarak, bugün öğretilen içerik, neredeyse gelecekteki tüm kodlama zorluklarıyla ilgili olacaktır. Ancak bu aynı zamanda düzenli olarak tekrarlanmalarını da sağlar.
+
+Wir beginnen mit dem eigentlichen Hauptprogramm, das in ANSI C stets mit dem Funktionsnamen main() versehen wird:
+ANSI C'de her zaman main() işlev adı verilen asıl ana programla başlıyoruz:
+
+Anfang und Ende des Anweisungsblocks werden (wie schon beim Pseudocode üblich) durch geschwungene Klammern dargestellt
+İfade bloğunun başı ve sonu, küme parantezleri ile gösterilir (sözde kodda olduğu gibi).
+
+Hier beginnt der Anweisungsblock der main-Funktion:
+Burada ana işlevin ifade bloğu başlar:
+
+Hier endet er:
+İşte biter:
+
+Alle Anweisungen (Befehle) werden eingerückt notiert:
+Tüm talimatlar (komutlar) girintilidir:
+
+Jede Anweisung wird mit einem Semikolon abgeschlossen:
+Her ifade noktalı virgülle sonlandırılır:
+
+Um komplizierte Abschnitte eines Codes für den Leser erläutern zu können, gibt es die Möglichkeit, Kommentare in einen Quellcode einzutragen, die vom Compiler beim Übersetzen ignoriert werden.
+Okuyucuya bir kodun karmaşık bölümlerini açıklayabilmek için, bir kaynak koda, çeviri sırasında derleyici tarafından göz ardı edilen yorumlar girme olasılığı vardır.
+Falls ein Code nur eine einzige Zeile benötigt, so reicht die Notation zweier Slash-Symbole unmittelbar vor dem Kommentar:
+Bir kod yalnızca tek bir satır gerektiriyorsa, yorumdan hemen önce iki eğik çizgi simgesinin gösterimi yeterlidir:
+
+Mehrzeilige Kommentare starten mit /* und enden mit */
+Çok satırlı yorumlar /* ile başlar ve */ ile biter
+
+Oberhalb der main-Funktionen werden die Präprozessor-Anweisungen notiert. (Sie beginnen stets mit dem Hash-Symbol)
+Önişlemci talimatları ana işlevlerin üzerinde belirtilmiştir. (Her zaman hash sembolü ile başlarlar)
+
+Mit include werden benötigte Bibliotheken eingebunden (dazu heute noch mehr)
+Gerekli kütüphaneler include ile birlikte gelir (bununla ilgili bugün daha fazlası)
+
+Die Präprozessor-Anweisung define werden wir erst später behandeln
+Daha sonra tanımlı önişlemci ifadesini ele alacağız
+
+Der Bereich unterhalb der Präprozessor-Anweisungen, aber oberhalb vom main kann für (eigene) Funktionen verwendet werden.
+Önişlemci ifadelerinin altındaki, ancak main'in üzerindeki alan (kendi) işlevleri için kullanılabilir.
+Da wir dieses Thema aber erst deutlich später behandeln, werden wir diesen Bereich zunächst ungenutzt lassen.
+Ancak bu konuya çok sonra değinmeyeceğimiz için şimdilik bu alanı boş bırakacağız.
+
+Aus genau diesem Grund wollen wir auch die main-Funktion zunächst so „sparsam“ wie möglich notieren. Gemeint ist …
+İşte tam da bu nedenle, başlangıçta ana işlevi mümkün olduğu kadar “ihtiyatlı” olarak yazmak istiyoruz. Kastedilmektedir …
+
+… dass wir die hier farblich markierte Schreibweise zunächst bewusst unterlassen werden, da wir weder Parameter, noch den Typ des Rückgabewertes, geschweige denn den Return-Befehl bereits behandeln wollen.
+... şu an için burada renkli gösterimi kullanmaktan kasıtlı olarak kaçınacağımızı, çünkü dönüş komutunu bırakın, ne parametrelerle ne de dönüş değerinin türüyle uğraşmak istemiyoruz.
+
+Der Compiler reagiert dann zwar mit dem folgenden Hinweis:
+Derleyici daha sonra aşağıdaki mesajla yanıt verir:
+ 
+… dies ist aber nur eine Warnung (also keine Fehlermeldung) und wird von uns bis auf weiteres ignoriert. Erst wenn wir das Thema der Funktionen behandelt haben werden, wird es Sinn machen (zumindest Teile) der angesprochenen Notation zu ergänzen.
+... ancak bu yalnızca bir uyarıdır (hata mesajı değildir) ve bir sonraki duyuruya kadar tarafımızca göz ardı edilecektir. Sadece fonksiyonlar konusunu ele aldığımızda, bahsedilen notasyonu (en azından bir kısmını) eklemek mantıklı olacaktır.
+
+Alle Variablen müssen in einem Quellcode vor der ersten Verwendung deklariert und definiert werden!
+Tüm değişkenler, ilk kez kullanılmadan önce bir kaynak kodda bildirilmeli ve tanımlanmalıdır!
+
+Eine sofortige Initialisierung ist aber nicht zwingend gefordert:
+Ancak, hemen başlatma zorunlu değildir:
+
+Erste Zuweisungen werden als Initialisierung bezeichnet
+İlk atamalara başlatma denir
+
+Erst beim Überschreiben wird von einer Zuweisung gesprochen
+Bir ödev yalnızca üzerine yazıldığında konuşulur
+
+Die Definition (und Deklaration) jeder einzelnen Variable geschieht natürlich stets nur einmalig
+Elbette, her bir değişkenin tanımı (ve bildirimi) her zaman yalnızca bir kez gerçekleşir.
+
+Keine erneute Definition! Yeni tanım yok!
+
+Und natürlich können auch die Resultate von Rechnungen zugewiesen werden:
+Ve elbette hesaplamaların sonuçları da atanabilir:
+
+Mit der Funktion printf können Texte auf der Konsole ausgeben werden.
+Solche Texte werden auch als „Zeichenkette“ oder „String“ bezeichnet.
+printf işlevi, metinleri konsola çıkarmak için kullanılabilir.
+Bu tür metinlere ayrıca "zincir" veya "string" de denir.
+
+Um dem Compiler deutlich zu machen, wo ein String anfängt und wo er aufhört, muss er stets in (doppelten) Anführungszeichen notiert werden!
+Bir dizgenin nerede başlayıp nerede bittiğini derleyiciye açıklığa kavuşturmak için, her zaman (çift) tırnak içinde yazılmalıdır!
+
+Die Funktion printf ist (zumindest der reinen Lehre nach) dem Compiler unbekannt. Der Compiler weiß also nicht, was er zu tun hat, wenn er den Befehl printf kompilieren soll. Daher muss zunächst eine Bibliothek eingeführt werden, in der dies „erklärt“ wird.
+printf işlevi (en azından teorik olarak) derleyici tarafından bilinmiyor. Dolayısıyla derleyici printf komutunu derlemesi gerektiğinde ne yapacağını bilemez. Bu nedenle, önce bunun "açıklandığı" bir kitaplık tanıtılmalıdır.
+Es gibt eine große Anzahl von Bibliotheken, die die unterschiedlichsten Funktionen erklären.
+Die Bibliothek, in der printf erklärt wird, heißt stdio.h (Abkürzung für STanDard Input Output)
+En çeşitli işlevleri açıklayan çok sayıda kitaplık vardır.
+printf'nin bildirildiği kitaplığa stdio.h denir (STanDard Input Output'un kısaltması)
+
+Das Format-Zeichen \n (= „next Line“) sorgt für einen Umbruch
+Biçim karakteri \n (= "sonraki satır") bir ara oluşturur
+
+Das Format-Zeichen \t sorgt für einen Tabulator-Sprung (also ein „Einrücken“)
+Biçim karakteri \t bir tab atlamasına neden olur (yani bir "girinti")
+
+Natürlich können auch mehrere Format-Symbole gleichzeitig genutzt werden
+Tabii ki, aynı anda birkaç format sembolü de kullanılabilir.
+
+%d (= dezimal) ist der Platzhalter für ganze Zahlen
+%d (= ondalık) tamsayılar için yer tutucudur
+
+Hinter dem String und durch Komma getrennt werden die auszugebenden Variablen notiert
+Çıktısı alınacak değişkenler dizeden sonra not edilir ve virgülle ayrılır
+
+Natürlich können auch mehrere Variablen (beliebigen Typs) ausgegeben werden
+Tabii ki, (herhangi bir türden) birkaç değişken de çıktı alınabilir.
+
+Die Anzahl der ausgegebenen Nachkommastellen kann festgelegt werden. (Es wird mathematisch korrekt gerundet)
+Çıktı ondalık basamak sayısı belirtilebilir. (Matematiksel olarak doğru yuvarlanmıştır)
+
