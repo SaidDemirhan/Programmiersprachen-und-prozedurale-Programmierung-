@@ -1,0 +1,121 @@
+V_01_04
+Programmierung(1)
+Agenda
+Verzweigungen dallar
+Motivation und Beispiel motivasyon ve örnek
+Darstellung im PAP PAP'ta Sunum
+Darstellung im Struktogramm Yapı şemasındaki temsil
+Darstellung im Pseudocode Sözde kodda temsil
+Syntax in ANSI C ANSI C'de sözdizimi
+Bedingungen / Vergleichsoperatoren Koşullar/karşılaştırma operatörleri
+Ausführliches Training + Ergebnisbesprechung Ayrıntılı eğitim + sonuçların tartışılması
+Fachpraktische Anwendungen Teknik pratik uygulamalar
+Verzweigung – Motivation Dallanma - Motivasyon
+Wir haben gestern das Codieren von Eingaben erlernt und auf diese Weise unsere ersten interaktiven Programme schreiben können. Für diese Programme galt aber bisher, dass auf die unterschiedlichen User- Eingaben stets die identische Verarbeitung folgte.
+Dün girdilerin nasıl kodlanacağını öğrendik ve bu şekilde ilk interaktif programlarımızı yazabildik. Ancak bu programlar için, daha önce farklı kullanıcı girdilerinin her zaman aynı işleme tabi tutulması söz konusuydu.
+
+Oder kurz: Es konnten zwar unterschiedliche Werte eingegeben werden, aber es wurde daraufhin stets die selbe Formel benutzt.
+Veya kısaca: Farklı değerler girilebilirdi ama o zaman hep aynı formül kullanıldı.
+
+Tatsächlich werden wir aber leicht Beispiele finden, bei denen je nach Eingabe auch unterschiedliche Verarbeitungen nötig sein werden. Das Sprachkonstrukt einer Programmiersprache, das (mittels der Überprüfung einer Bedingung) entscheiden kann, welcher Programmabschnitt im Folgenden abgearbeitet werden soll, wird Verzweigung genannt.
+Ancak aslında, girdiye bağlı olarak farklı işlemlerin de gerekli olacağı örnekleri kolayca bulacağız. Aşağıda hangi program bölümünün işleneceğine (bir koşulu kontrol ederek) karar verebilen bir programlama dilinin dil yapısına dal denir.
+
+Hierzu wollen wir noch einmal ein Beispiel des gestrigen Tages aufgreifen, bei dem wir das bisher noch nicht gänzlich überzeugende Ergebnis durch eine Verzweigung verbessern können:
+Bunun için, henüz tam olarak inandırıcı olmayan sonucu dallara ayırarak iyileştirebileceğimiz dünden bir örnek almak istiyoruz:
+
+Beispielsaufgabe
+Aufgabenstellung: Görev:
+Vom User werden die folgenden drei Informationen abgefragt:
+Kullanıcıdan aşağıdaki üç bilgi istenir:
+Aktuelle Jahreszahl
+Geburtsjahr (des Users)
+Und neu dazugekommen: Antwort auf die Frage, ob der User dieses Jahr bereits Geburtstag hatte
+Ve bir yenisi daha: kullanıcının doğum gününün bu yıl olup olmadığı sorusuna cevap
+Daraufhin soll das Programm das aktuelle Alter des Users ermitteln und ausgeben.
+Program daha sonra kullanıcının mevcut yaşını belirlemeli ve çıkarmalıdır.
+Anschließend endet das Programm. Ardından program sona erer.
+Auch für diese Aufgabe wollen wir zunächst PAP, Struktogramm und Pseudocode erstellen, um erst daraufhin den entsprechenden Quellcode in ANSI C zu codieren.
+Bu görev için de önce PAP, structogram ve pseudocode oluşturmak ve ancak ondan sonra karşılık gelen kaynak kodunu ANSI C'de kodlamak istiyoruz.
+ 
+– Struktogramm
+ 
+– Pseudocode
+Programm „Altersbestimmung 2.0“
+{
+Eingabe: aktJahr
+Eingabe: gebJahr
+Eingabe: schonGeburtstagGehabt
+falls(schonGeburtstagGehabt=‘j‘)
+{
+alter=aktJahr-gebJahr
+}
+sonst
+{
+alter=aktJahr-gebJahr-1
+}
+Ausgabe: alter
+}
+
+– Quellcode Kaynak kodu
+#include<stdio.h>
+main()
+{
+int aktJahr;
+int gebJahr;
+char schonGeburtstagGehabt
+int alter;
+printf(“Geben Sie bitte das aktuelle Jahr ein: “);
+scanf(“%d“,&aktJahr);
+printf(“Geben Sie bitte Ihr Geburtsjahr ein: “);
+fflush(stdin);
+scanf(“%d“,&gebJahr);
+printf(“Hatten Sie dieses Jahr schon Geburtstag (j/n) : “);
+fflush(stdin);
+scanf(“%c“,& schonGeburtstagGehabt);
+if(schonGeburtstagGehabt==‘j‘)
+{
+alter=aktJahr-gebJahr;
+}
+else
+{
+alter=aktJahr-gebJah-1;
+}
+printf(“Sie sind %d Jahre alt“,alter);
+}
+
+Vergleichsoperatoren karşılaştırma operatörleri
+#include<stdio.h>
+main()
+{
+int aktJahr;
+int gebJahr;
+char schonGeburtstagGehabt;
+int alter;
+printf(“Geben Sie bitte das aktuelle Jahr ein: “);
+scanf(“%d“,&aktJahr);
+printf(“Geben Sie bitte Ihr Geburtsjahr ein: “);
+fflush(stdin);
+scanf(“%d“,&gebJahr);
+printf(“Hatten Sie dieses Jahr schon Geburtstag (j/n) : “);
+fflush(stdin);
+scanf(“%c“,&schonGeburtstagGehabt);
+if(schonGeburtstagGehabt==‘j‘)
+{
+alter=aktJahr-gebJahr;
+}
+else
+{
+alter=aktJahr-gebJahr-1;
+}
+printf(“Sie sind %d Jahre alt“,alter);
+}
+Bezeichnung … 	Programmieren (optional) … 	Codieren (obligatorisch)
+„gleich“	=	==
+„ungleich“	≠	!=
+„größer“	>	>
+„kleiner“	<	<
+„größer gleich“	≥	>=
+„kleiner gleich“	≤	<=
+Hinweis: Bir uyarı:
+Beim Programmieren im Allgemeinen (insbesondere aber beim Pseudocode) ist es ratsam, die Schreibweise des Codierens zu übernehmen, um auf diese Weise später (typische) Codier-Fehler zu vermeiden.
+Genel olarak programlama yaparken (ancak özellikle sözde kod söz konusu olduğunda), daha sonra bu şekilde (tipik) kodlama hatalarından kaçınmak için kodlama gösteriminin benimsenmesi tavsiye edilir.
