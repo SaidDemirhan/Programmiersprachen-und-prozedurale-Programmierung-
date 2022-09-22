@@ -1,0 +1,159 @@
+V_01_03
+Programmierung(1)
+Agenda
+Interaktive Programme
+Eingabefunktion in ANSI C
+Adressoperator
+Löschen des Tastaturpuffers
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+Etkileşimli programlar
+ANSI C'de giriş işlevi
+adres operatörü
+Klavye arabelleğini temizleme
+Ayrıntılı eğitim + sonuçların tartışılması
+Teknik pratik uygulamalar
+
+Eingabe (kurze Wiederholung) – Darstellungen (im PAP / Struktogramm / Pseudocode)
+Girdi (kısa tekrar) - temsiller (PAP / yapı şemasında / sözde kodda)
+Im PAP gibt es ein eigenes Symbol für Eingaben:
+(wenngleich es sich von Ausgaben nur durch seine Beschriftung unterscheidet)
+PAP'ta girişler için ayrı bir sembol vardır:
+(yalnızca başlığında sürümlerden farklı olmasına rağmen)
+ 
+(hinter dem Doppelpunkt wird der Name jener Variable notiert, die den Eingabewert abspeichern soll)
+Im Struktogramm wird eine Eingabe als „Vorgang“ betrachtet und in einem Rechteck notiert:
+(giriş değerini saklayacak değişkenin adı iki nokta üst üste işaretinden sonra belirtilir)
+Yapısal diyagramda, bir giriş bir "süreç" olarak görülür ve bir dikdörtgen içinde not edilir:
+ 
+Im Pseudocode wird dann einfach nur der Text (natürlich ohne Grafik) übernommen:
+Sözde kodda, yalnızca metin (elbette grafiksiz) devralınır:
+Eingabe: a
+
+Eingabe – 1. Beispiel für ein „interaktives“ Programm
+Girdi – 1. “Etkileşimli” program örneği
+Wir haben bisher das bereits angesprochene EVA-Prinzip (Eingabe / Verarbeitung / Ausgabe) nur simuliert, indem wir die Eingabe durch eine im Programm festgelegte Initialisierung ersetzten. Solche Programme sind dann natürlich nicht „interaktiv“, da sie dem User offensichtlich keine Möglichkeit geben, Einfluss auf das Programm zu nehmen.
+Şimdiye kadar, girdiyi programda tanımlanan bir başlatma ile değiştirerek, daha önce bahsedilen EVA ilkesini (girdi/işleme/çıkış) simüle ettik. Tabii ki, bu tür programlar "etkileşimli" değildir çünkü açıkça kullanıcıya programı etkileme fırsatı vermezler.
+
+Die folgende Beispielsaufgabe soll dies ändern. Wie üblich werden wir zunächst deren Lösung mittels PAP, Struktogramm und Pseudocode betrachten.
+Aşağıdaki örnek görev bunu değiştirmeyi amaçlamaktadır. Her zamanki gibi, önce PAP, structogram ve pseudocode kullanarak çözümlerine bakacağız.
+
+Erst im Anschluss wollen wir den entsprechenden Quellcode erstellen und hierbei die Syntax von Eingaben in ANSI C kennenlernen.
+Ancak o zaman karşılık gelen kaynak kodunu oluşturmak ve ANSI C'deki girişlerin sözdizimini öğrenmek istiyoruz.
+Aufgabenstellung görev
+Zu Beginn des Programmes soll ein User …
+a) die aktuelle Jahreszahl und
+b) sein Geburtsjahr eingeben.
+Programın başında, bir kullanıcı ...
+a) içinde bulunulan yıl ve
+b) doğum yılını girin.
+Daraufhin soll das Programm errechnen, wie alt der User im aktuellen Jahr wird (oder bereits wurde).
+Dieses Rechenergebnis wird zunächst abgespeichert und dann auf der Konsole ausgegeben.
+Anschließend endet das Programm.
+Program daha sonra kullanıcının mevcut yılda kaç yaşında olacağını (veya zaten olduğunu) hesaplamalıdır.
+Bu hesaplama sonucu önce kaydedilir ve ardından konsolda çıktısı alınır.
+Ardından program sona erer.
+Musterlösung – PAP
+ 
+Musterlösung – Struktogramm
+ 
+Musterlösung – Pseudocode
+Programm „Altersbestimmung“ yaş değerlendirmesi
+{
+Eingabe: aktJahr
+Eingabe: gebJahr
+alter=aktJahr-gebJahr
+Ausgabe: alter
+}
+Musterlösung (provisorisch) – ANSI C – Eingabebefehl
+Örnek çözüm (geçici) - ANSI C - giriş komutu
+#include<stdio.h>
+main()
+{
+int aktJahr;
+int gebJahr;
+int alter;
+scanf(“%d“,&aktJahr);
+scanf(“%d“,&gebJahr);
+alter=aktJahr-gebJahr;
+printf(“Dieses Jahr werden (oder wurden) Sie %d“,alter);
+}
+
+Typ (der zu füllenden Variable) Tür (doldurulacak değişkenin)
+Für die Typen werden die selben
+Symbole wie bei printf verwendet: 
+Çünkü erkekler aynı olacak
+printf ile kullanılan semboller:
+
+Die Notation zum Typ geschieht stets in Form eines Strings
+=> also in (doppelten) Anführungszeichen
+Türün gösterimi her zaman bir dize biçimindedir.
+=> yani (çift) tırnak içinde
+
+Name (der zu füllenden Variable) İsim (doldurulacak değişkenin)
+Der Name der zu füllenden Variable erscheint nach dem String (durch Komma getrennt)
+Doldurulacak değişkenin adı dizeden sonra görünür (virgülle ayrılmış)
+
+Adressoperator adres operatörü
+Vor dem Namen muss stets ein „kaufmännisches UND“ notiert werden. Es handelt sich dabei um den sogenannten Adressoperator, der dem Compiler mitteilt, dass wir hier nicht von dem Wert der Variable aktJahr sprechen, sondern von deren Speicherort, also jenem Ort, an dem die User-Eingabe für aktJahr abgespeichert werden soll.
+Adın önünde her zaman bir "ve işareti VE" belirtilmelidir. Bu, derleyiciye aktYear değişkeninin değerinden değil, onun depolama konumundan, yani aktYear için kullanıcı girişinin kaydedileceği konumdan bahsettiğimizi söyleyen adres operatörüdür.
+
+Bibliothek kütüphane
+printf und scanf sind beide in der selben Bibliothek stdio.h
+printf ve scanf her ikisi de aynı stdio.h kitaplığındadır
+
+warum provisorisch? – 1. Grund
+neden geçici? – 1. sebep
+Wenn wir den scanf-Befehl ausführen lassen, so erscheint auf der Konsole ein „blinkender“ Cursor, der auf die Eingabe des Users „wartet“. Es fehlt also noch ein „Aufforderungs-Text“, etwa in der Form „Geben Sie bitte das aktuelle Jahr ein: “. Genau dies können wir aber natürlich durch einen entsprechenden printf-Befehl vor jeder scanf-Anweisung nachholen:
+scanf komutunu çalıştırdığımızda, konsolda "yanıp sönen" bir imleç belirir, kullanıcıdan giriş "bekler". Bir "istem metni" hala eksik, örneğin "Lütfen geçerli yılı girin: " şeklinde. Elbette, her scanf ifadesinden önce karşılık gelen printf komutuyla tam olarak bunu yapabiliriz:
+
+
+
+#include<stdio.h>
+main()
+{
+int aktJahr;
+int gebJahr;
+int alter;
+printf(“Geben Sie bitte das aktuelle Jahr ein: “);
+scanf(“%d“,&aktJahr);
+printf(“Geben Sie bitte Ihr Geburtsjahr ein: “);
+scanf(“%d“,&gebJahr);
+alter=aktJahr-gebJahr;
+printf(“Dieses Jahr werden (oder wurden) Sie %d“,alter);
+}
+warum provisorisch? – 2. Grund neden geçici? – 2. sebep
+Die Eingabe des Users wird zunächst im Tastatur-Puffer abgelegt, von wo sie durch scanf ausgelesen wird. Nun ergibt sich aber das Problem, dass nach dem ersten scanf-Aufruf dieser Tastaturpuffer bereits gefüllt ist und alle weiteren scanf-Aufrufe Gefahr laufen, diesen Tastaturpuffer-Inhalt erneut auszulesen (und also nicht auf die neue Eingabe des Users zu warten). Um dies zu umgehen, sollten wir vor jeder scanf-Anweisung (spätestens aber vor der zweiten und allen folgenden) den Tastaturpuffer löschen. Dies geschieht mittels des Funktionsaufrufes: fflush(stdin).
+Kullanıcının girdisi önce klavye arabelleğinde saklanır ve buradan scanf ile okunur. Ancak şimdi sorun, ilk scanf çağrısından sonra, bu klavye arabelleğinin zaten dolu olması ve diğer tüm scanf çağrılarının, bu klavye arabelleği içeriğini tekrar okuma (ve dolayısıyla kullanıcıdan yeni girişi beklememe) riskini taşımasıdır. Bunu aşmak için, her scanf ifadesinden önce klavye arabelleğini temizlemeliyiz (ancak en geç ikinci ve sonraki tüm ifadelerden önce). Bu şu fonksiyon çağrılarak yapılır: fflush(stdin).
+
+#include<stdio.h>
+main()
+{
+int aktJahr;
+int gebJahr;
+int alter;
+printf(“Geben Sie bitte das aktuelle Jahr ein: “);
+scanf(“%d“,&aktJahr);
+printf(“Geben Sie bitte Ihr Geburtsjahr ein: “);
+fflush(stdin); //provisorisch geçici olarak degil
+scanf(“%d“,&gebJahr);
+alter=aktJahr-gebJahr;
+printf(“Dieses Jahr werden (oder wurden) Sie %d“,alter);
+
+Die Funktion fflush() hat Vor- und Nachteile.
+Ein wichtiger Vorteil ist, dass sie eine komfortable Möglichkeit bietet, das geschilderte Problem zu lösen. Daher wird diese Funktion in Einstiegs- Lehrbüchern für ANSI C oft verwendet.
+Ein Nachteil ist aber, dass sie nicht zum offiziellen ANSI C-Standard gehört und nicht auf jedem Betriebssystem anwendbar ist. Für einen Einstiegs-Kurs im Fach der prozeduralen Programmierung können wir diesen Nachteil aber vernachlässigen.
+fflush() işlevinin avantajları ve dezavantajları vardır.
+Önemli bir avantaj, açıklanan sorunu çözmek için uygun bir yol sunmasıdır. Bu nedenle, bu işlev genellikle giriş niteliğindeki ANSI C ders kitaplarında kullanılır.
+Ancak bir dezavantajı, resmi ANSI C standardına ait olmaması ve her işletim sisteminde kullanılamamasıdır. Ancak prosedürel programlamaya giriş dersi için bu dezavantajı göz ardı edebiliriz.
+
+Interaktiver Code – Gemeinsame Übung A_01_03_01
+Allgemeiner Hinweis:
+Wir werden in diesem Baustein in der Regel vom „gutmütigen User“ ausgehen und daher üblicherweise nicht kontrollieren, ob seine Eingaben zulässig sind, oder ob er (z.B.) Buchstaben eingab, wo eigentlich Zahlen
+gefordert waren.
+Auf diese Weise wird uns die Konzentration auf die eigentliche Aufgabenstellung leichter fallen (zumal wir zur Zeit eine Eingabe-Kontrolle auch noch nicht technisch umsetzen könnten).
+Dennoch werden wir natürlich auch dies lernen, es dann aber nicht in jeder Aufgabe wiederholen, da die immer gleichen Programmabschnitte wertvolle Unterrichtszeit kosten würden.
+Bu modülde, genellikle "iyi niyetli kullanıcı" olarak kabul edeceğiz ve bu nedenle, girişine izin verilip verilmediğini veya (örneğin) gerçekte sayıların bulunduğu harfleri girip girmediğini genellikle kontrol etmeyeceğiz.
+gerekliydi.
+Bu şekilde, asıl göreve konsantre olmamız daha kolay olacaktır (özellikle teknik olarak henüz bir girdi kontrolü uygulayamadığımız için).
+Bununla birlikte, elbette bunu da öğreneceğiz, ancak aynı program bölümleri değerli öğretim zamanını alacağından, her görevde tekrarlamayacağız.
