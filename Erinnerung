@@ -1,4 +1,35 @@
 ANSI C:
   C dilinin standart kütüphanesidir.
   
-PAP  
+„Programmieren“ :
+meint das Planen sowie (graphische, und/oder sprachliche) Beschreiben aller Arbeitsschritte, 
+die zur Lösung eines gegebenen Problems abzuarbeiten sind.
+"Programlama", belirli bir sorunu çözmek için tamamlanması gereken tüm çalışma adımlarını 
+(grafik ve/veya dilsel olarak) planlamak ve açıklamak anlamına gelir
+
+„Codieren“: hingegen meint das Übersetzen dieses graphischen Plans 
+in eine für den Computer (oder Compiler / Interpreter) verständliche Sprache.
+“Kodlama” ise bu grafik planı bilgisayarın (veya derleyicinin/tercümanın) anlayabileceği bir dile
+tercüme etmek demektir.
+
+EDV: Elektronische Daten-Verarbeitung -elektronik veri işleme
+
+VARIABLE
+
+  Integer: Variable, die (nur!) eine einzige ganze Zahl abspeichern kann
+  Tamsayı: Tek bir tamsayı (yalnızca!) depolayabilen değişken
+  
+  Float (oder Double): Variable, die (nur!) eine einzige Kommazahl abspeichern kann
+  Tek bir ondalık sayıyı (yalnızca!) depolayabilen değişken
+    Virgül yerine NOKTA(.) kullanilmalidir. -mit einem Punkt (statt Komma) 
+    Bei Rechnungen mit Kommazahlen müssen Rundungsfehler berücksichtigt werden!
+    Ondalık basamaklı hesaplamalarda yuvarlama hataları dikkate alınmalıdır!
+
+
+  Character: Variable, die (nur!) ein einziges Zeichen abspeichern kann
+  (Beispiele sind: Buchstaben, Ziffern, Satzzeichen …)
+  Tek bir karakter (sadece!) depolayabilen değişken (Örnekler: harfler, sayılar, noktalama işaretleri...)
+  (Character)-Wert ‘q‘ zugewiesen wurde
+
+EVA-Prinzip: Eingabe -> Verarbeitung -> Ausgabe
+EVA prensibi: girdi -> işleme -> çıktı
