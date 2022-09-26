@@ -47,7 +47,7 @@ PAP: Programmablaufplan -Program akis semasi
   Ausgabe=c (paralelkenar)
   Ende 
   
-Eingabe: Welche Variable gefüllt werden soll -Girdi: Hangi değişken doldurulmalı
+Eingabe: Welche Variable gefüllt werden soll -Girdi: Hangi değişken doldurulmalı  -(paralelkenar)
 Ausgabe: Von welcher Variable der Wert ausgegeben wird -Çıktı: Değerin hangi değişkenden çıktığı
 
 Strukturogramm
@@ -102,4 +102,60 @@ Kommentar
 #define
 her zaman #(hash) sembolü ile baslamalidir.
 
-printf() : Ausgabe -cikti - metinleri konsola cikarmak icin kullanilir.
+scanf("%d", &yas) :
+  Kullanicidan bilgi almak icin kullanilir.
+  yas degiskeninin olusturulmasi öncesinde sarttir.
+
+printf("%d", yas) : 
+  Ausgabe -cikti - metinleri konsola cikarmak icin kullanilir.
+  cikan metin sonuclari - auch als „Zeichenkette“ oder „String“ bezeichnet.
+  icine yazilanlar her zaman " isareti icinde yazilmalidir.
+  
+stdio.h (STanDart input Output)  :
+  printf ve scanf komutlarinin derleyici tarafindan algilanabilmesi icin yazilmasi sarttir.
+
+fflush(stdin):
+  ikinci yazilacak scanf öncesi mutlaka klavye arabellegi temizlemek icin kullanilir.
+  ANSI C standartlarina uygun olmasa da isimizi halleder, ama her isletim sisteminde kullanilmayabilir.
+  
+\n : bir sonraki satira gecirir
+
+\t : bir tab tusu kadar bosluk olusturur.
+
+%d : ondalik sayilar icin kullanilir. (Dezimal)
+
+----------------------------------------------------------------------------------------
+
+Verzweigung: (ESKENARDÖRTGEN)
+  Das Sprachkonstrukt einer Programmiersprache, das (mittels der Überprüfung einer Bedingung) entscheiden kann, 
+  welcher Programmabschnitt  abgearbeitet werden soll, wird Verzweigung genannt.
+  Hangi program bölümünün işleneceğine (bir koşulu kontrol ederek) karar verebilen bir programlama dilinin dil yapısına dal denir.
+  
+  if(sart){
+  }else if(sart){
+  else{}
+
+Vergleichsoperatoren - karşılaştırma operatörleri
+  „gleich“	          =	    ==
+  „ungleich“	        ≠	    !=
+  „größer“	          >	    >
+  „kleiner“	          <	    <
+  „größer gleich“	    ≥	    >=
+  „kleiner gleich“	  ≤	    <=
+  
+-------------------------------------------------------------------------------------------
+
+Schleifen
+
+  WHILE-Schleife
+  
+    while(kosul){
+    aksiyon(printf)
+    }
+    
+    kosul= bedingung
+    while(kosul)= schleifenkopf
+    aksiyon=scleifenrumpf(döngü gövdesi)
+    
+--------------------------------------------------------------------------------------------    
+    tamami =schleife
