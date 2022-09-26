@@ -1,6 +1,4 @@
-ANSI C:
-  C dilinin standart kütüphanesidir.
-  
+
 „Programmieren“ :
 meint das Planen sowie (graphische, und/oder sprachliche) Beschreiben aller Arbeitsschritte, 
 die zur Lösung eines gegebenen Problems abzuarbeiten sind.
@@ -33,3 +31,75 @@ VARIABLE
 
 EVA-Prinzip: Eingabe -> Verarbeitung -> Ausgabe
 EVA prensibi: girdi -> işleme -> çıktı
+
+Gösterim 4 cesit olabilir.
+  1-PAP
+  2-Strukturogramm(Nassi-Schneiderman-Diagramme)
+  3-Pseudecode
+  4-Quelcodes
+  
+PAP: Programmablaufplan -Program akis semasi
+
+  Start
+  a=5
+  b=7
+  c=a+b
+  Ausgabe=c (paralelkenar)
+  Ende 
+  
+Eingabe: Welche Variable gefüllt werden soll -Girdi: Hangi değişken doldurulmalı
+Ausgabe: Von welcher Variable der Wert ausgegeben wird -Çıktı: Değerin hangi değişkenden çıktığı
+
+Strukturogramm
+  a=5
+  b=7
+  c=a+b
+  Ausgabe=c
+
+Pseudecode
+  Programm "name des programms"{
+    a=5
+    b=7
+    c=a+b
+    Ausgabe=c
+  }
+
+ihtiyac duyulacak programlar:
+  DIA : grafik araci
+  Structorizer: yapi diyagramlari olusturmak icin cizim araci
+  Notepad : Pseude code olusturmak icin kullanilacak metin düzenleyici
+  
+--------------------------------------------------------------------------------------------
+
+Präprozessoranweisung: include<…> 
+Önişlemci yönergesi: include<…>
+  
+„geschlossen“(Strom fließt) -"kapalı" (akım kapali)-  0
+„offen“(Strom fließt nicht) -"açık" (akım acik) -     1 
+
+ANSI C:
+  C dilinin standart kütüphanesidir.
+  
+SQL ist die Datenbanksprache - bir veritabanı dili SQL
+
+C# ist eine OOP-Sprache.
+
+IDE: Integrated Development Environment - Entegre Geliştirme Ortamı
+  IDE olarak CODE BLOCKS kullanilabilir.
+
+main(){} Program her zaman ana program ile baslamalidir. 
+
+Jede Anweisung wird mit einem Semikolon abgeschlossen.
+Her ifade noktalı virgülle sonlandırılır.
+
+// nur eine einzige Zeile Kommentar
+/* 
+Mehrzeilige 
+Kommentar
+*/
+
+#include  - Gerekli kütüphaneler include ile birlikte gelir 
+#define
+her zaman #(hash) sembolü ile baslamalidir.
+
+printf() : Ausgabe -cikti - metinleri konsola cikarmak icin kullanilir.
