@@ -158,5 +158,41 @@ Schleifen
     aksiyon=scleifenrumpf(döngü gövdesi)    
     tamami =schleife
 
---------------------------------------------------------------------------------------------
+##############################################################################
 
+  Do-While Schleife
+
+    Do-While-Schleifen überprüfen die Bedingung erst NACH einem Durchlauf
+    Do-while döngüleri yalnızca bir yinelemeden SONRA koşulu kontrol eder
+    
+      int x;
+      do{
+        printf(“Geben Sie bitte eine ganze Zahl kleiner 10 ein: “);
+        scanf(“%d“,&x);
+      }
+      while(x>=10);
+      printf(“Glückwunsch!“);
+
+ ##############################################################################
+ 
+ FOR-Schleife
+ 
+    main() {
+      int start,ziel,sprung,zaehler;
+      printf(“Geben Sie bitte den Startwert ein: “);
+      scanf(“%d“,&start);
+      
+      printf(“Geben Sie bitte den Zielwert ein: “);
+      fflush(stdin);
+      scanf(“%d“,&ziel);
+      
+      printf(“Geben Sie bitte den Sprungwert ein: “);
+      fflush(stdin);
+      scanf(“%d“,&sprung);
+      for(zaehler=start; zaehler<=ziel; zaehler=zaehler+sprung){
+        printf(“Aktueller Zähler-Wert: %d\n“,zaehler);
+      }
+      printf(“Die Schleife endete, denn der Zähler hat den Wert %d“,zaehler);
+    }
+
+ 
