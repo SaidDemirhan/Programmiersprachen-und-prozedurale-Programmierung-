@@ -155,7 +155,8 @@ Schleifen
     
     kosul= bedingung
     while(kosul)= schleifenkopf
-    aksiyon=scleifenrumpf(döngü gövdesi)
-    
---------------------------------------------------------------------------------------------    
+    aksiyon=scleifenrumpf(döngü gövdesi)    
     tamami =schleife
+
+--------------------------------------------------------------------------------------------
+
