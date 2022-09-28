@@ -1,0 +1,88 @@
+V_01_05
+Programmierung(1)
+Agenda
+Schleifen (While) Döngü (While)
+Motivation und Beispiel motivasyon ve örnek
+Darstellung im PAP PAP'ta Sunum
+Darstellung im Struktogramm Yapı şemasındaki temsil
+Darstellung im Pseudocode Sözde kodda temsil
+Syntax in ANSI C ANSI C'de sözdizimi
+Bedingungen / Vergleichsoperatoren Koşullar / karşılaştırma operatörleri
+Ausführliches Training + Ergebnisbesprechung Ayrıntılı eğitim + sonuçların tartışılması
+Fachpraktische Anwendungen Teknik pratik uygulamalar
+Schleifen – Motivation Döngüler - motivasyon
+Falls (identische) Programmabschnitte unmittelbar hintereinander mehrfach ausgeführt werden sollen, so kann dies mit Hilfe von sogenannten Schleifen realisiert werden.
+Eğer (özdeş) program bölümleri arka arkaya birkaç kez çalıştırılacaksa, bu döngüler yardımıyla gerçekleştirilebilir.
+
+Schleifen stellen stets eine Arbeitserleichterung dar, da sie dem Programmierer das mehrfache Notieren des zu wiederholenden Codes ersparen.
+Döngüler, programcıyı birkaç kez tekrarlanacak kodu yazmak zorunda bırakmadığından, çalışmayı her zaman kolaylaştırır.
+
+Schleifen können darüber hinaus aber auch technisch unverzichtbar sein, sofern die genaue Anzahl der verlangten Wiederholungen erst zur Laufzeit des Programms bekannt seien wird.
+Bununla birlikte, program çalışana kadar gereken tam tekrar sayısı bilinmiyorsa, döngüler teknik olarak da vazgeçilmez olabilir.
+
+Da eine Schleife (in der Regel) nicht unendlich oft wiederholt werden soll (in diesem Fall spräche man von einer Endlos-Schleife), gehört zu einer Schleife stets auch eine Bedingungs-Überprüfung, mit deren Hilfe entschieden wird, ob die Schleife (erstmalig oder erneut) durchlaufen wird.
+Bir döngü (genellikle) sonsuz sıklıkta tekrarlanmaması gerektiğinden (bu durumda bir sonsuz döngüden bahsedilebilir), bir döngü her zaman bir koşul kontrolü içerir ve bunun yardımıyla döngünün (ilk defa mı yoksa yeniden mi) kararlaştırıldığına karar verilir. tekrar) üzerinden geçilir.
+
+Wir werden im Laufe des Bausteins insgesamt 3 Typen von Schleifen kennenlernen, wollen uns aber am heutigen Tag zunächst ausschließlich mit WHILE-Schleifen befassen.
+Modül boyunca toplam 3 tip döngü tanıyacağız, ancak şimdilik sadece WHILE döngüleri ile ilgilenmek istiyoruz.
+– Beispielaufgabe
+
+Aufgabenstellung: Görev:
+Vor der Schleife wird vom User eine ganze Zahl x abgefragt.
+Döngüden önce kullanıcıdan bir tamsayı x istenir.
+Daraufhin soll eine Schleife starten, die solange durchlaufen wird, solange x größer 1 ist.
+Daha sonra x 1'den büyük olduğu sürece çalışacak bir döngü başlamalıdır.
+Hinweis: Falls die User-Eingabe bereits von Beginn an kleiner oder gleich 1 ist, so soll die Schleife also kein einziges mal durchlaufen werden!
+Not: Kullanıcı girişi, başlangıçtan itibaren 1'den küçük veya eşitse, döngü bir kez çalıştırılmamalıdır!
+Pro Schleifendurchlauf soll … Her döngü çalıştırması...
+- x durch 2 (ohne Rest) geteilt werden
+- der aktuelle Wert von x ausgegeben werden.
+- x 2'ye bölünebilir (kalansız).
+- x'in mevcut değeri çıktıdır.
+
+Nach der Schleife soll auf der Konsole „Schleife wurde abgearbeitet“ erscheinen und das Programm enden.
+Döngüden sonra konsolda "Döngü işlendi" görünmeli ve program sona ermelidir.
+Auch für diese Aufgabe wollen wir zunächst PAP, Struktogramm und Pseudocode erstellen, um erst daraufhin den entsprechenden Quellcode in ANSI C zu codieren.
+Bu görev için de önce PAP, structogram ve pseudocode oluşturmak ve ancak ondan sonra karşılık gelen kaynak kodunu ANSI C'de kodlamak istiyoruz.
+
+– PAP– Schleife– Schleifenkopf– Bedingung– Schleifenrumpf
+– PAP – döngü – döngü başı – koşul – döngü gövdesi
+ 
+
+
+
+
+
+
+
+
+
+– Struktogramm– Schleife– Schleifenkopf– Bedingung– Schleifenrumpf
+ 
+
+– Pseudocode– Schleife– Schleifenkopf– Bedingung– Schleifenrumpf
+Programm „Schleifen-Beispiel“
+{
+Eingabe: x
+solange(x>1)
+{
+x=x/2
+Ausgabe: x
+}
+Ausgabe: „Schleife wurde beendet“
+}
+
+– Quellcode– Schleife– Schleifenkopf– Bedingung– Schleifenrumpf
+#include<stdio.h>
+main()
+{
+int x;
+printf(“Geben Sie bitte eine ganze Zahl ein: “);
+scanf(“%d“,&x);
+while(x>1)	// Schleifenkopf (Bedingung)
+{
+x=x/2;
+printf(“Aktueller Wert von x: %d\n“,x); 	//Schleifenrumpf
+}			// Schleife
+printf(“Die Schleife wurde abgearbeitet“);
+}
