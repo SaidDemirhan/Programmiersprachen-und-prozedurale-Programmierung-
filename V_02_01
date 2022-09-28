@@ -1,0 +1,106 @@
+V_02_01
+Programmierung(1)
+Agenda
+Schleifen (Do-While)
+Motivation und Beispiel
+Darstellung im PAP
+Darstellung im Struktogramm
+Darstellung im Pseudocode
+Syntax in ANSI C
+Bedingungen / Vergleichsoperatoren
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+
+Do-While – Motivation
+Wir hatten zuletzt mit den sogenannten „While-Schleifen“ bereits erste Schleifen kennengelernt. Der Schleifen-Typ, mit dem wir uns heute beschäftigen werden, wird in vielen Programmiersprachen als Do- While-Schleife bezeichnet.
+
+Für beide Schleifentypen gilt, dass diese einen zugewiesenen Abschnitt des Quellcodes solange wiederholen, solange eine gegebene Bedingung zutrifft.
+
+Der einzige Unterschied besteht in der Position der jeweiligen Bedingungsüberprüfung:
+While-Schleifen überprüfen die Bedingung VOR jedem Durchlauf
+Do-While-Schleifen überprüfen die Bedingung erst NACH einem Durchlauf
+Dieser Unterschied hat die folgende Konsequenz:
+While-Schleifen haben unter Umständen keinen einzigen Durchlauf.
+(sofern bereits die erste Überprüfung ergibt, dass die Bedingung nicht zutrifft)
+Do-While-Schleifen haben stets mindestens einen Durchlauf.
+(da die Bedingung immer erst nach diesem ersten Durchlauf überprüft wird)
+Son zamanlarda, "while döngüleri" olarak adlandırılan ilk döngüleri zaten tanıyorduk. Bugün ele alacağımız döngü tipine birçok programlama dilinde do-while döngüsü denir.
+
+Her iki döngü türü de belirli bir koşul karşılandığı sürece kaynak kodun atanmış bir bölümünü tekrarlar.
+
+Tek fark, her koşul kontrolünün konumudur:
+Döngüler her yinelemeden ÖNCE durumu kontrol ederken
+Do-while döngüleri yalnızca bir yinelemeden SONRA koşulu kontrol eder
+Bu fark aşağıdaki sonucu doğurur:
+Döngülerin tek bir geçişi olmayabilir.
+(ilk kontrol koşulun geçerli olmadığını gösteriyorsa)
+Do-while döngüleri her zaman en az bir yinelemeye sahiptir.
+(çünkü koşul her zaman yalnızca bu ilk çalıştırmadan sonra kontrol edilir)
+
+Do-While – Beispielaufgabe
+Aufgabenstellung:
+Das Programm startet mit einer Schleife, in der pro Durchlauf vom User eine ganze Zahl kleiner 10 abgefragt wird.
+Erst nach dem ersten Durchlauf soll (bzw. kann!) überprüft werden, ob die User-Eingabe korrekt war.
+Falls der User keinen korrekten Wert eingab, so soll die Schleife den nächsten Durchlauf starten
+Falls die Eingabe korrekt war, so soll die Schleife abgebrochen werden.
+Nach der Schleife soll auf der Konsole „Glückwunsch!“ erscheinen und das Programm enden.
+Auch für diese Aufgabe wollen wir zunächst PAP, Struktogramm und Pseudocode erstellen, um erst daraufhin den entsprechenden Quellcode in ANSI C zu codieren.
+Görev:
+Program, kullanıcıdan her çalıştırmada 10'dan küçük bir tam sayı istendiği bir döngü ile başlar.
+Yalnızca ilk çalıştırmadan sonra kullanıcı girişinin doğru olup olmadığı kontrol edilmelidir (veya yapılabilir!).
+Kullanıcı doğru bir değer girmediyse, döngü bir sonraki yinelemeye başlamalıdır.
+Giriş doğruysa, döngü sonlandırılmalıdır.
+Döngüden sonra konsolda "Tebrikler!" görünmeli ve program sona ermelidir.
+Bu görev için de önce PAP, structogram ve pseudocode oluşturmak ve ancak ondan sonra karşılık gelen kaynak kodunu ANSI C'de kodlamak istiyoruz.
+– PAP
+Wichtig:
+Die Bedingung muss so formuliert werden, dass bei „ja“ bzw. „wahr“
+Die Schleife weiterläuft. In diesem Fall also:
+Falls zutrifft, dass x>=10, so war die Eingabe inkorrekt und die Schleife soll ihren nächsten Durchlauf starten.
+(Stichwort: „Durchführungsbedingung“, KEINE „Abbruchbedingung“)
+Önemli:
+Koşul, "evet" veya "doğru" olacak şekilde formüle edilmelidir.
+Döngü devam ediyor. Yani bu durumda:
+x>=10 ise, giriş yanlıştır ve döngü bir sonraki yinelemeye başlamalıdır.
+(Anahtar kelime: “uygulama koşulu”, “sonlandırma koşulu YOK”)
+ 
+– Schleife- Schleifenrumpf -Schleifenfuß- Bedingung 
+Döngü-döngü gövdesi-döngüsü ayagi - sart
+
+ 
+Start
+Eingabe: x
+x >= 10
+ja
+nein
+Ausgabe: „Glückwunsch!“
+Ende
+
+– Struktogramm– Schleife– Schleifenrumpf– Schleifenfuß– Bedingung
+ 
+Eingabe: x
+x >= 10
+Ausgabe: “Glückwunsch!“
+– Pseudocode– Schleife– Schleifenrumpf– Schleifenfuß– Bedingung
+Programm „Do-While-Beispiel“
+{
+{
+Eingabe: x
+}
+solange(x>=10)
+Ausgabe: “Gratulation!“
+} 
+– Quellcode– Schleife– Schleifenrumpf– Schleifenfuß– Bedingung
+
+#include<stdio.h>
+main()
+{
+int x;
+do
+{
+printf(“Geben Sie bitte eine ganze Zahl kleiner 10 ein: “);
+scanf(“%d“,&x);
+}
+while(x>=10);
+printf(“Glückwunsch!“);
+}
