@@ -1,0 +1,169 @@
+V_02_02
+Programmierung(1)
+Agenda
+FOR-Schleifen
+Motivation und Beispiel
+(Post)-Inkrement, -Dekrement
+Darstellung im PAP
+Darstellung im Struktogramm
+Darstellung im Pseudocode
+Syntax in ANSI C
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+FOR-Schleifen – Motivation
+Ausgangslage:
+Eine große Anzahl von Schleifen arbeiten mit einem Schleifenzähler, also einer Variablen die pro Durchlauf weitergezählt (erhöht oder verringert) wird.
+Başlangıç pozisyonu:
+Çok sayıda döngü, bir döngü sayacıyla çalışır, yani çalışma başına sayılan (artan veya azalan) bir değişken.
+
+Nicht selten wird auch über diesen Zähler gesteuert (siehe die jeweils verwendete Bedingung), ob die Schleife weiterläuft oder beendet wird.
+Döngünün devam edip etmediğini veya sonlandırıldığını kontrol etmek için bu sayacın kullanılması (her durumda kullanılan koşula bakın) alışılmadık bir durum değildir.
+
+Ferner muss im Falle der Verwendung eines Zählers stets dafür gesorgt werden, dass dieser mit einem (bzgl. der Aufgabenstellung geeigneten) Startwert initialisiert wird.
+Ayrıca bir sayaç kullanılıyorsa, her zaman bir başlangıç değeriyle (göreve uygun) başlatıldığından emin olunmalıdır.
+
+Konsequenz:
+Auf Grund der Häufigkeit dieser Ausgangslage, lohnt sich die Einführung einer eigenständigen For- Schleifen-Syntax, die solche Zähler-Schleifen kompakt und gut lesbar darstellt.
+Sonuçlar:
+Bu ilk durumun sıklığı nedeniyle, bu tür karşı döngüleri kompakt ve okunaklı bir şekilde görüntüleyen bağımsız bir for döngüsü sözdizimi sunmaya değer.
+
+Zu diesem Zweck werden die wesentlichen Elemente (Setzen des Startwertes, Überprüfung der Durchlauf-Bedingung und Hochzähl-Modus) in einer einzigen Zeile notiert (sind nun also nicht mehr auf verschiedene Stellen des Codes verteilt).
+
+Bu amaçla, temel öğeler (başlangıç değerinin ayarlanması, yineleme koşulunun kontrol edilmesi ve artış modu) tek bir satırda not edilir (artık kodda farklı yerlere dağıtılmazlar).
+
+
+
+
+(Post)-Inkrement/Dekrement – Motivation und Definition
+(Post)-arttırma/azaltma - motivasyon ve tanım
+Ausgangslage:
+Der Modus, mit dem bei einer Zähler-Schleife weitergezählt wird, kann je nach Aufgabenstellung sehr unterschiedlich aussehen (und unterliegt jedenfalls keiner technischen Beschränkung).
+Başlangıç pozisyonu:
+Bir sayaç döngüsünde saymaya devam etmek için kullanılan mod, göreve bağlı olarak çok farklı görünebilir (ve her durumda herhangi bir teknik kısıtlamaya tabi değildir).
+
+Tatsächlich gilt aber wohl für die allermeisten je geschriebenen Zähler-Schleifen, dass deren Schleifenzähler pro Durchlauf um genau 1 erhöht, oder (immer noch oft, wenn auch seltener) pro Durchlauf um genau 1 verringert wird.
+Bununla birlikte, aslında, şimdiye kadar yazılmış olan sayaç döngülerinin büyük çoğunluğunun döngü sayacı, çalışma başına tam olarak 1 artırıldı veya (yine de, daha az sıklıkla da olsa) çalışma başına tam olarak 1 azaldı.
+
+Bei der diesbezüglich zur Zeit einzigen uns bekannten Schreibweise müssten wir den Zähler also entweder in der Form zaehler=zaehler+1 hochzählen (oder entsprechend mit zaehler=zaehler-1 herunterzählen)
+Bu bağlamda şu anda bilinen tek gösterimle, sayacı ya sayaç=sayaç+1 biçiminde artırmamız (ya da buna bağlı olarak sayaç=sayaç-1 ile geri saymamız) gerekir.
+
+
+Konsequenz:
+Auch hier lohnt sich die Einführung einer Kurzschreibweise, die uns das doppelte Notieren des selben Variablenamens erspart:
+zaehler++ ist Kurzschreibweise für zaehler=zaehler+1 (und wird (Post)-Inkrement genannt)
+zaehler – – ist Kurzschreibweise für zaehler=zaehler-1 (und wird (Post)-Dekrement genannt)
+Sonuçlar:
+Burada da bizi aynı değişken adını iki kez belirtmekten kurtaran kısa bir gösterim sunmaya değer:
+counter++, counter=counter+1'in kısaltmasıdır (ve (post)-artış olarak adlandırılır)
+sayaç – – sayaç=sayaç-1'in kısaltmasıdır (ve (post)-azaltma olarak adlandırılır)
+
+Bemerkung:
+Die Unterscheidung zwischen Post- und Prä-Inkrement/ –Dekrement werden wir erst später problematisieren. Im Moment können wir schlicht von Inkrement oder Dekrement sprechen. Allerdings sollten wir beides ausschließlich innerhalb des Kopfes von FOR-Schleifen verwenden, oder alleinstehend in einer einzigen Zeile. Eine Verschachtelung (etwa innerhalb von printf) sollten wir unterlassen, da genau dort der Unterschied zwischen Post- und Prä- zum Tragen kommt.
+
+Açıklama:
+Arttırma/azaltma sonrası ve öncesi arasındaki farkı daha sonra tartışacağız. Şu anda sadece artış veya azalmadan bahsedebiliriz. Ancak, sadece FOR döngülerinin başında veya tek bir satırda bağımsız olarak kullanmalıyız. İç içe yerleştirmekten kaçınmalıyız (örneğin printf içinde), çünkü bu tam olarak post ve pre- arasındaki farkın devreye girdiği yerdir.
+
+
+
+
+
+
+FOR-Schleifen – Beispielaufgabe
+FOR döngüleri - örnek görev
+Aufgabenstellung: Görev:
+Vor der Schleife werden vom User drei ganze Zahlen abgefragt:
+Die erste Zahl soll in start abgespeichert werden. Sie bestimmt, von wo aus die anschließende Zähler-Schleife starten soll.
+Döngüden önce kullanıcıdan üç tam sayı istenir:
+İlk sayı başlangıçta saklanmalıdır. Sonraki sayaç döngüsünün nereden başlayacağını belirler.
+Die zweite Zahl soll größer als start sein, in ziel abgespeichert werden und bestimmen, bis zu welcher Zahl (höchstens) hochgezählt werden soll.
+İkinci sayı başlangıçtan büyük olmalı, hedefte saklanmalı ve sayının (en fazla) hangi sayıya kadar sayılması gerektiğini belirlemelidir.
+Die dritte Zahl soll in sprung abgespeichert werden. Sie bestimmt, um welchen Wert der Schleifenzähler pro Durchlauf hochgezählt werden soll.
+Üçüncü sayı yaylı olarak saklanmalıdır. Döngü sayacının çalıştırma başına hangi değere göre artırılması gerektiğini belirler.
+Daraufhin soll eine Schleife starten, die mit dem Zählerwert = start beginnt.
+Daha sonra sayaç değeri = start ile başlayan bir döngü başlamalıdır.
+Pro Schleifendurchlauf soll …
+- (zuerst) der aktuelle Wert des Zählers ausgegeben werden
+- (anschließend) der Zähler um den Wert von sprung erhöht werden (zaehler=zaehler+sprung)
+Die Schleife wird solange laufen, solange der Wert des Zählers kleiner (oder gleich) ziel ist.
+Her döngü çalıştırması...
+- (İlk) sayacın mevcut değeri çıktı alınır
+- (ardından) sayacı atlama değeri kadar artırın (sayaç=sayaç+atlama)
+Döngü, sayacın değeri hedeften küçük (veya ona eşit) olduğu sürece çalışacaktır.
+=> Die Schleife wird abgebrochen, falls zaehler > ziel
+=> Sayaç > hedef ise döngü sonlandırılır
+Nach der Schleife soll die Ausgabe: „Die Schleife endete, denn der Zähler hat den Wert:“ zaehler erscheinen. Anschließend soll das Programm beendet werden.
+Döngüden sonra çıktı: "Sayaç şu değere sahip olduğu için döngü sona erdi:" sayacı görünmelidir. Ardından program sonlandırılmalıdır.
+Auch für diese Aufgabe wollen wir zunächst PAP, Struktogramm und Pseudocode erstellen, um erst daraufhin den entsprechenden Quellcode in ANSI C zu codieren.
+Bu görev için de önce PAP, structogram ve pseudocode oluşturmak ve ancak ondan sonra karşılık gelen kaynak kodunu ANSI C'de kodlamak istiyoruz.
+
+Hinweis:
+Aus didaktischen Gründen wurde diese Aufgabe möglichst allgemein gehalten.
+Sie verzichtet daher zunächst auf eine Anwendung von Inkrement oder Dekrement.
+Dies holen wir aber bei den folgenden Übungen nach … Versprochen! ;-)
+
+Bir uyarı:
+Didaktik nedenlerle, bu görev mümkün olduğunca genel tutuldu.
+Bu nedenle başlangıçta artırma veya azaltma kullanmaktan kaçınır.
+Ama bunu aşağıdaki alıştırmalarda ele alacağız... Söz veriyorum! ;-)
+
+
+
+– PAP – Schleife – Initialisierung des Zählers – Zähler-gesteuert – Weiterzähl-Modus
+Döngü - sayacın başlatılması - sayaç kontrollü - sayma modu
+  
+Start
+Eingabe: start,ziel,sprung
+zaehler=start
+zaehler<=ziel
+nein
+ja
+Ausgabe: zaehler
+zaehler=zaehler+sprung 
+Ausgabe: „Die Schleife endet, denn der Zähler hat den Wert:“ zaehler
+Ende
+
+Hinweis:
+PAP´s besitzen kein eigenes Symbol für FOR-Schleifen. Daher ist an einer im PAP dargestellten Zähler-Schleife nicht ablesbar, ob diese als FOR- oder WHILE-Schleife gemeint ist.
+Bir uyarı:
+PAP'lerin FOR döngüleri için kendi sembolleri yoktur. Bu nedenle, bunun bir FOR veya WHILE döngüsü anlamına gelip gelmediğini PAP'ta gösterilen bir sayaç döngüsünden okumak mümkün değildir.
+
+– Struktogramm – Schleife – Initialisierung des Zählers – Zähler-gesteuert – Weiterzähl-Modus
+Eingabe: start,ziel,sprung
+für(zaehler=start; zaehler<=ziel; zaehler=zaehler+sprung) 
+Ausgabe: zaehler 
+Ausgabe: „Die Schleife endet, denn der Zähler hat den Wert“ zaehler
+ 
+
+– Pseudocode– Schleife – Initialisierung des Zählers – Zähler-gesteuert – Weiterzähl-Modus
+Programm „FOR-Schleifen-Beispiel“
+{
+Eingabe: start,ziel,sprung
+für(zaehler=start; zaehler<=ziel; zaehler=zaehler+sprung)
+{
+Ausgabe: zaehler
+}
+Ausgabe: „Die Schleife endet, denn der Zähler hat den Wert“ zaehler
+}
+
+
+– Quellcode– Schleife – Initialisierung des Zählers – Zähler-gesteuert – Weiterzähl-Modus
+#include<stdio.h>
+main()
+{
+int start,ziel,sprung,zaehler;
+printf(“Geben Sie bitte den Startwert ein: “);
+scanf(“%d“,&start);
+printf(“Geben Sie bitte den Zielwert ein: “);
+fflush(stdin);
+scanf(“%d“,&ziel);
+printf(“Geben Sie bitte den Sprungwert ein: “);
+fflush(stdin);
+scanf(“%d“,&sprung);
+for(zaehler=start; zaehler<=ziel; zaehler=zaehler+sprung)
+{
+printf(“Aktueller Zähler-Wert: %d\n“,zaehler);
+}
+printf(“Die Schleife endete, denn der Zähler hat den Wert %d“,zaehler);
+}
+
+
