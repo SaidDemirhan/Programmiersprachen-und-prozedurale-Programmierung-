@@ -1,0 +1,173 @@
+V_02_03
+Programmierung(1)
+Agenda
+Kategorisierung von Schleifen
+Ort der Bedingungsüberprüfung
+Kopf- versus Fuß-gesteuert
+Art der Bedingungsüberprüfung
+Zähler- versus nicht-Zähler-gesteuert
+Kriterien für die Auswahl von Schleifen
+Mindestens 1 Durchlauf versus (eventuell) kein Durchlauf
+Potentielle Austauschbarkeit von Schleifentypen
+Modulo-Operator
+Definition
+Beispielaufgabe im PAP, Struktogramm, Pseudocode und ANSI C
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+Kategorisierung von Schleifen – Kopf versus Fuß
+Döngülerin sınıflandırılması - başa karşı son
+Wie bereits angedeutet, können wir Schleifen bzgl. des Ortes der Bedingungsüberprüfung unterscheiden. Falls diese Bedingungsüberprüfung VOR jedem Durchlauf (also im „Kopf“ der Schleife) geschieht, so spricht man von kopf-gesteuerten Schleifen.
+=> WHILE- und FOR-Schleifen sind demnach kopf-gesteuert
+Daha önce belirtildiği gibi, koşullu kontrolün konumu açısından döngüleri ayırt edebiliriz. Bu koşul kontrolü her yinelemeden ÖNCE yapılırsa (yani, döngünün “başında”), kafa kontrollü döngülerden bahsederiz.
+=> WHILE ve FOR döngüleri bu nedenle kafa kontrollüdür
+
+Entsprechend werden Schleifen, bei denen die Bedingungsüberprüfung NACH jedem Durchlauf geschieht als fuß-gesteuert bezeichnet.
+=> DO-WHILE-Schleifen sind also fuß-gesteuerte Schleifen
+Benzer şekilde, koşul denetiminin her yinelemeden SONRA gerçekleştiği döngülere ayakla yönlendirilir denir.
+=> DO-WHILE döngüleri ayak kontrollü döngülerdir
+
+Für kopf-gesteuerte Schleifen ist charakteristisch, dass diese möglicherweise keinen einzigen Durchlauf vollziehen, da die Schleife bereits mit ihrer ersten Bedingungsüberprüfung (und also vor ihrem ersten Durchlauf) abgebrochen werden kann.
+Baş kontrollü döngülerin özelliği, döngü zaten ilk koşul kontrolü ile (ve dolayısıyla ilk geçişinden önce) sonlandırılabildiğinden, tek bir geçiş yürütememeleridir.
+
+Fuß-gesteuerte Schleifen werden hingegen stets mindestens einen Durchlauf absolvieren, da die Bedingungsüberprüfung immer erst nach einem Durchlauf stattfindet. (Eine fuß-gesteuerte Schleife kann also frühestens nach ihrem ersten Durchlauf abgebrochen werden.)
+
+Ayak kontrollü döngüler ise, koşul kontrolü her zaman bir geçişten sonra gerçekleştiğinden, her zaman en az bir geçişi tamamlayacaktır. (Bu nedenle, ayakla kontrol edilen bir döngü, yalnızca ilk çalıştırmadan sonra iptal edilebilir.)
+
+
+
+Kategorisierung von Schleifen – Zähler-gesteuert?
+Döngü Kategorizasyonu – Sayaç yönetilir mi?
+Eine vom Ort der Bedingung unabhängige Kategorisierung von Schleifen gelingt, wenn man sich die Frage stellt, ob die Bedingung einer Schleife von einem Zählerwert spricht. Schleifen, für die dies gilt, werden Zähler-gesteuert genannt. (Der Wert des Zählers steuert dann also, ob die Schleife abgebrochen wird, oder ob ein weiterer Durchlauf starten soll)
+Bir döngü koşulunun bir sayaç değerinden söz edip etmediği sorusu sorulursa, koşulun konumundan bağımsız olan bir döngü sınıflandırması başarılı olur. Bunun geçerli olduğu döngülere karşı güdümlü denir. (Sayacı değeri, daha sonra döngünün sonlandırılıp sonlandırılmayacağını veya başka bir çalıştırmanın başlaması gerekip gerekmediğini kontrol eder)
+
+Zähler-gesteuerte Schleifen können prinzipiell kopf- oder fuß-gesteuert sein. Da jedoch ihr Zähler die Anzahl der Durchläufe bestimmt, und weil diese Anzahl im Einzelfall auch vom Wert 0 seien könnte, bieten sich in der Regel kopf-gesteuerte Schleifen an, die entsprechend auch schon vor dem ersten Durchlauf abgebrochen werden könnten.
+Sayaç kontrollü döngüler prensipte kafa veya ayak kontrollü olabilir. Ancak, sayacınız çalıştırma sayısını belirlediğinden ve bu sayı münferit durumlarda 0 değerine de sahip olabileceğinden, kafa kontrollü döngüler genellikle en iyi seçenektir ve ilk çalıştırmadan önce de kesilebilir.
+
+Bei Zähler-gesteuerten Schleifen ist die klassische Wahl des Schleifentyps sicherlich eine FOR-Schleife. Es wäre aber umgekehrt falsch, anzunehmen, dass jede FOR-Schleife Zähler-gesteuert sei. Tatsächlich werden wir im späteren Verlauf Beispiele kennenlernen, bei denen eine verwendete FOR-Schleife zwar mit einem Schleifenzähler arbeitet (also einen Startwert setzt und den Schleifenzähler nach jedem Durchlauf weiterzählt) dabei allerdings eine Bedingung verwendet, die nicht vom Zähler abhängt. Durchlauf und Ende einer solchen Schleife werden demnach nicht vom Zähler gesteuert.
+
+Sayaç kontrollü döngüler söz konusu olduğunda, klasik döngü tipi seçimi kesinlikle bir FOR döngüsüdür. Tersine, her FOR döngüsünün karşı güdümlü olduğunu varsaymak yanlış olur. Aslında, daha sonra, bir FOR döngüsünün bir döngü sayacıyla çalıştığı (yani, bir başlangıç değeri ayarladığı ve her çalıştırmadan sonra döngü sayacını saydığı), ancak sayaca bağlı olmayan bir koşul kullandığı örnekleri öğreneceğiz. Böyle bir döngünün akışı ve sonu bu nedenle sayaç tarafından kontrol edilmez.
+
+Kriterien für die Auswahl von Schleifen – Anzahl der Durchläufe
+Döngü seçme kriterleri – geçiş sayısı
+Immer dann, wenn eine Schleife mindesten 1-mal durchlaufen werden soll, bietet sich eine fußgesteuerte Schleife an. Typische Beispiele sind:
+Bir döngü en az bir kez çalıştırılacaksa, ayak kontrollü bir döngü iyi bir seçimdir. Tipik örnekler:
+
+Eingabe-Schleifen, bei denen die Korrektheit der Eingabe natürlich erst NACH dem ersten Durchlauf kontrolliert werden kann.
+Girişin doğruluğunun elbette ancak ilk çalıştırmadan SONRA kontrol edilebileceği giriş döngüleri.
+
+Fehleranfällige Funktionsaufrufe, bei denen erst nach dem Versuch kontrolliert werden kann, ob diese wie gewünscht gearbeitet haben.
+Hataya açık işlev çağrıları, yalnızca istendiği gibi çalışıp çalışmadıkları denemeden sonra kontrol edilebilir.
+
+In allen anderen Fällen sollten kopf-gesteuerte Schleifen verwendet werden.
+Diğer tüm durumlarda, kafa kontrollü döngüler kullanılmalıdır.
+
+
+Falls diese ohne Zähler-Variable arbeiten, so sollten WHILE-Schleife gewählt werden.
+Bunlar bir sayaç değişkeni olmadan çalışıyorsa, WHILE döngüleri seçilmelidir.
+
+Falls mit (einer oder mehreren) Zähler-Variablen gearbeitet wird, können FOR-Schleifen empfohlen werden. Dies gilt unabhängig davon, ob die jeweiligen Schleifen auch Zähler-gesteuert sind, da FOR-Schleifen eine kompakte Notation der Startwert-Initialisierung und des Weiterzähl-Modus ermöglichen.
+
+(Bir veya daha fazla) sayaç değişkeniyle çalışıyorsanız, FOR döngüleri önerilebilir. Bu, ilgili döngülerin aynı zamanda sayaç kontrollü olup olmadığına bakılmaksızın geçerlidir, çünkü FOR döngüleri başlangıç değeri başlatma ve sayım modunun kompakt bir gösterimini sağlar.
+
+Kriterien für die Auswahl von Schleifen – Potentielle Austauschbarkeit
+Döngü Seçimi Kriterleri - Potansiyel Değiştirilebilirlik
+Unabhängig von den zuvor angesprochenen Empfehlungen gilt jedoch, dass jede der drei uns bekannten Schleifen-Typen durch jeden anderen ersetzt werden könnte.
+Bununla birlikte, yukarıda tartışılan önerilerden bağımsız olarak, bildiğimiz üç döngü türünden herhangi biri, başka herhangi biriyle değiştirilebilir.
+
+Dies werden wir aus Trainingsgründen bei einer kommenden Beispielsaufgabe praktisch vorführen. Dabei wird dann allerdings auch deutlich werden, dass die Ersetzung eines günstigen Schleifentyps (durch einen beliebigen anderen) gelegentlich recht aufwendig sein kann, und jedenfalls nicht selten sehr unnatürlich wirkt. Zudem leidet die Lesbarkeit des Quellcodes.
+Eğitim nedenleriyle, bunu pratikte gelecek bir örnek görevde göstereceğiz. Bununla birlikte, ucuz bir döngü tipini (herhangi bir başka tiple) değiştirmenin bazen oldukça zaman alıcı olabileceği ve her durumda genellikle çok doğal görünmediği de anlaşılacaktır. Ek olarak, kaynak kodun okunabilirliği zarar görür.
+
+=> Eventuell kann durch diese Form von „Ausschluss-Kriterien“ noch deutlicher werden, warum man sich im Einzelfall für bestimmte (und gegen andere) Schleifen-Typen entscheidet.
+=> Muhtemelen bu "dışlama kriterleri" biçimi, belirli (ve diğerlerine karşı) döngü türleri için bireysel durumlarda neden karar verildiğini daha da netleştirebilir.
+
+Modulo-Operator – Definition Modulo operatör tanımı
+Der Modulo-Operator ermittelt den Rest beim ganzzahligen Teilen … Beispiele:
+Modulo operatörü, tamsayılara bölerken kalanı belirler... Örnekler:
+5 modulo 3 = 2, denn 5: 3 = 1 Rest 2
+25 modulo 7 = 4, denn 25: 7 = 3 Rest 4
+33 modulo 11= 0, denn 33:11 = 3 Rest 0
+
+Der Modulo-Operator bzgl. n ergibt einen Wert zwischen 0 und n-1 … Beispiel (für n=3):
+n'ye göre modulo operatörü 0 ile n-1 arasında bir değer verir... Örnek (n=3 için):
+0 modulo 3 = 0
+1 modulo 3 = 1
+2 modulo 3 = 2
+3 modulo 3 = 0
+4 modulo 3 = 1
+5 modulo 3 = 2
+6 modulo 3 = 0
+7 modulo 3 = 1
+…
+Achtung: Tehlike:
+Für beliebige ganze Zahlen x ist x modulo 0 nicht zulässig!
+(dies entspräche dem ebenfalls unzulässigen Teilen durch 0)
+Herhangi bir x tamsayısında, x modulo 0'a izin verilmez!
+(bu, 0'a bölmeye karşılık gelir ve buna da izin verilmez)
+Modulo-Operator – Motivation Modulo operatörü - motivasyon
+Wer mit ganzen Zahlen rechnet, der vermeidet Rundungsfehler, die bei Berechnungen mit Kommazahlen in der Regel auftreten.
+Tam sayılarla hesaplama yaparsanız, genellikle ondalık sayılarla hesaplama yaparken oluşan yuvarlama hatalarından kaçınırsınız.
+
+Addieren, Subtrahieren und Multiplizieren von ganzen Zahlen ist im wesentlichen unproblematisch. Wer aber zwei ganze Zahlen dividiert und Kommawert-Ergebnisse vermeiden möchte, der muss eine Division mit Rest durchführen. Die beiden sich hierbei ergebenden Werte müssen auf zwei unterschiedliche Operationen verteilt werden:
+Tamsayıları toplama, çıkarma ve çarpma esasen sorunsuzdur. Ancak iki tam sayıyı bölerseniz ve ondalık sonuçlardan kaçınmak istiyorsanız, kalanlı bir bölme yapmanız gerekir. Ortaya çıkan iki değer, iki farklı işleme dağıtılmalıdır:
+
+Die Division ermittelt nur den ganzzahligen Wert und ignoriert den Rest: 13 : 4 = 3
+Der Modulo ermittelt nur den Rest und ignoriert den ganzzahligen Wert: 13 modulo 4 = 1
+Bölme yalnızca tamsayı değerini bulur ve kalanı yok sayar: 13 : 4 = 3
+Modulo sadece kalanı hesaplar ve tamsayı değerini yok sayar: 13 modulo 4 = 1
+
+Tatsächlich gibt es aber auch weitere Motivationen, sich mit dem Modulo zu beschäftigen. Wir wollen zunächst nur die beiden folgenden vorstellen:
+Aslında, modulo ile başa çıkmak için başka motivasyonlar da var. İlk başta sadece aşağıdaki ikisini tanıtmak istiyoruz:
+
+Ob eine ganze Zahl n durch einen Wert t teilbar ist, kann mit dem Modulo-Operator entschieden werden, denn in diesem Fall gilt: n modulo t == 0
+Bir n tamsayının bir t değerine bölünüp bölünemeyeceğine modulo operatörüyle karar verilebilir, çünkü bu durumda aşağıdakiler geçerlidir: n modulo t == 0
+
+Des weiteren werden wir den Modulo-Operator auch beim arbeiten mit Zufallszahlen nutzen können. Mit diesem auf den ersten Blick verblüffenden Zusammenhang beschäftigen wir uns Morgen … Vorfreude ;-)
+
+Ayrıca rastgele sayılarla çalışırken modulo operatörünü de kullanabileceğiz. İlk bakışta insanı hayrete düşüren bu bağlantıyla yarın ilgileneceğiz... Beklenti ;-)
+
+Modulo-Operator – Beispielaufgabe
+Modulo operatörü - örnek problem
+Vom User wird zunächst eine beliebige ganze Zahl a abgefragt. Anschließend eine weiter ganze Zahl b, die ungleich 0 sein muss. (Beide Eingaben werden der Einfachheit halber nicht überprüft). Anschließend soll die folgende Ausgabe erscheinen, bevor das Programm endet:
+a „geteilt durch “ b „ergibt:“ a:b „Rest“ a modulo b
+Kullanıcıdan önce rastgele bir tam sayı a istenir. Sonra 0'a eşit olmaması gereken başka bir b tam sayısı. (Basitlik açısından her iki giriş de kontrol edilmemiştir). Ardından, program sona ermeden önce aşağıdaki çıktı görünmelidir:
+a "bölünmüş" b "verir:" a:b "kalan" a modulo b
+
+
+
+
+
+
+
+Hinweis:
+Die Modulo-Operation besitzt kein eigenes Symbol in PAP´s, Struktogrammen oder Pseudocodes.
+Die jeweiligen Notationsformen werden wir entsprechend auf der folgenden Folie gleichzeitig und ohne Mühe abhandeln können …
+… interessant wird daher vor Allem die Syntax in ANSI C sein.
+
+Bir uyarı:
+Modulo işleminin PAP'lerde, structogramlarda veya sözde kodlarda kendi sembolü yoktur.
+Aşağıdaki slaytta ilgili notasyon biçimleriyle aynı anda ve hiç çaba harcamadan ilgilenebileceğiz...
+… ANSI C'deki sözdizimi bu nedenle özellikle ilgi çekici olacaktır.
+ 
+ 
+Programm Modulo-Beispiel
+{
+Eingabe: a
+Eingabe: b
+Ausgabe: a „geteilt durch“ b „ergibt“ a:b „Rest“ a modulo b
+}
+
+
+Beispielaufgabe – Quellcode – Division und Modulo
+Örnek görev - kaynak kodu - bölme ve modulo
+# include<stdio.h>
+main()
+{
+int a,b;
+printf(“Geben Sie bitte eine beliebige ganze Zahl ein: “);
+fflush(stdin);
+scanf(“%d“,&a);
+printf(“Geben Sie bitte eine ganze Zahl ungleich 0 ein: “);
+fflush(stdin);
+scanf(“%d“,&b);
+printf(“%d geteilt durch %d ergibt: %d Rest %d“,a,b,a/b,a%b);
+}
