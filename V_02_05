@@ -1,0 +1,196 @@
+V_02_05
+Programmierung(1)
+Agenda
+Arrays
+Motivation + Beispielaufgabe
+Darstellung in PAP, Struktogramm, Pseudocode
+Initialisierung/Zuweisung
+Auslesen
+Nutzung in Schleifen
+Syntax in ANSI C
+Deklaration
+Definition
+– Typ
+– Länge
+» konstant
+» Festlegung zur Laufzeit
+Initialisierung/Zuweisung + Auslesen
+Nutzung in Schleifen
+Überschreiten der reservierten Felder
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+Arrays – Motivation Diziler - Motivasyon
+Wir haben bereits ausführlich über Schleifen gesprochen, und uns dabei insbesondere auch mit den sogenannten „Eingabe-Schleifen“ beschäftigt.
+Döngüler hakkında zaten kapsamlı bir şekilde konuştuk ve özellikle "girdi döngüleri" ile ilgilendik
+
+Diese wurden von uns unter anderem aus den beiden folgenden Gründen verwendet:
+Bunlar, diğerlerinin yanı sıra aşağıdaki iki nedenden dolayı tarafımızdan kullanılmıştır:
+
+Suche nach dem (z.B.) Maximum aller eingegebenen Zahlen
+Girilen tüm sayıların (örneğin) maksimumunu arayın
+
+Erneute Eingabe-Aufforderung bei unzulässigen User-Eingaben
+Geçersiz kullanıcı girişi için yenilenmiş bilgi istemi
+
+Für all diese Eingabe-Schleifen galt bisher jedoch, dass die vom User gefüllte Variable in jedem einzelnen Durchlauf überschrieben wurde. Für das Programm war daher stets nur die jeweils letzte Eingabe bekannt. Alle zuvor getätigten Eingaben waren entsprechend verloren.
+Ancak tüm bu girdi döngüleri için, her bir çalıştırmada kullanıcı tarafından doldurulan değişkenin üzerine yazılmıştır. Bu nedenle, program için yalnızca son giriş biliniyordu. Daha önce yapılan tüm girişler buna göre kaybedildi.
+
+Um dieses Problem zu lösen, nutzt man eine „Menge aus durchnummerierten Variablen“, die uns die folgende Vorgehensweise ermöglicht:
+Bu sorunu çözmek için aşağıdakileri yapmamızı sağlayan bir "numaralandırılmış değişkenler kümesi" kullanıyoruz:
+
+Im 1. Durchlauf wird vom User die 1. Variable der Menge gefüllt
+Im 2. Durchlauf wird vom User die 2. Variable der Menge gefüllt
+Im 3. Durchlauf wird vom User die 3. Variable der Menge gefüllt
+… usw. …...vb...
+1. çalıştırmada, kümenin 1. değişkeni kullanıcı tarafından doldurulur.
+2. çalıştırmada miktarın 2. değişkeni kullanıcı tarafından doldurulur.
+3. çalıştırmada kümenin 3. değişkeni kullanıcı tarafından doldurulur.
+
+Eine solche Menge „durchnummerierter Variablen“ wird als Array bezeichnet.
+Böyle bir "numaralı değişkenler" kümesine dizi denir.
+
+Die einzelne Variable eines Arrays wird Feld genannt.
+Bir dizideki tek değişkene alan adı verilir.
+
+Die konkrete Nummer eines einzelnen Feldes heißt Index.
+Tek bir alanın belirli sayısına indeks denir.
+
+Arrays – Beispielaufgabe Diziler - örnek görev
+Für Arrays gibt es kein eigenständiges Programmier-Symbol. Wir werden daher bei der Lösung der folgenden Beispielaufgabe (mittels PAP, Struktogramm oder Pseudocode) bereits jene Schreibweise kennenlernen, die im wesentlichen auch der Syntax des Quellcodes entspricht.
+Diziler için ayrı bir programlama sembolü yoktur. Bu nedenle, aşağıdaki örnek görevi çözerken (PAP, yapı şeması veya sözde kod kullanarak), kaynak kodun sözdizimine esasen karşılık gelen gösterimi zaten öğreneceğiz.
+
+Bei der Auswahl der Beispielaufgabe wurde darauf geachtet, dass wir alle wesentlichen Elemente im Umgang mit Arrays ansprechen. Dazu zählen neben der Zuweisung und dem Auslesen von Feldern auch die Nutzung eines Arrays innerhalb von (Zähler)-Schleifen.
+Örnek görev seçilirken, dizilerle ilgili tüm temel öğelerin ele alınmasına özen gösterildi. Alanların atanması ve okunmasına ek olarak, bu, (sayaç) döngüleri içinde bir dizinin kullanımını da içerir.
+
+Im Rahmen der Codierung werden wir uns dann auch noch mit der Deklaration und Definition von Arrays zu beschäftigen haben.
+Kodlamanın bir parçası olarak, dizilerin bildirimi ve tanımıyla da ilgilenmemiz gerekecek.
+
+Aufgabenstellung görev
+Gegeben sei ein Array mit 10 Feldern. Mittels einer Eingabeschleife soll dem User die Möglichkeit gegeben werden, alle 10 Felder mit ganzen Zahlen zu füllen. Nach dieser Schleife soll zur Kontrolle der Inhalt aller 10 Felder auf der Konsole ausgegeben werden. Danach endet das Programm.
+10 alanlı bir dizi verildi. Bir giriş döngüsü aracılığıyla, kullanıcıya 10 alanın tümünü tam sayılarla doldurma fırsatı verilmelidir. Bu döngüden sonra tüm 10 alanın içeriği kontrol için konsola gönderilmelidir. Bundan sonra program sona erer.
+
+Start
+i=0
+i<10
+ja
+Eingabe: userZahl[i]
+i++
+nein
+i=0
+i<10
+ja
+Ausgabe: userZahl[i]
+i++
+nein 
+Ende
+
+Beispielaufgabe – Struktogramm
+für(i=0;i<10;i++)
+Eingabe: userZahl[i]
+für(i=0;i<10;i++)
+Ausgabe: userZahl[i]
+ 
+Beispielaufgabe – Pseudocode
+Programm „Array-Beispiel“
+{
+für(i=0;i<10;i++)
+{
+Eingabe: userZahl[i]
+}
+für(i=0;i<10;i++)
+{
+Ausgabe: userZahl[i]
+}
+}
+Beispielaufgabe – Quellcode– Deklaration – Definition (Typ) – Definition (konstante Länge)
+Örnek görev – kaynak kodu – bildirim – tanım (tür) – tanım (sabit uzunluk)
+
+# include<stdio.h>
+main()
+{
+int i;
+int userZahl[10]; 		
+// userZahl =Deklaration, int= Definition (Typ), 10=– Definition (konstante Länge)
+for(i=0;i<10;i++)
+{
+printf(„Geben Sie bitte eine ganze Zahl ein:“);
+fflush(stdin);
+scanf(„%d“,&userZahl[i]);
+}
+for(i=0;i<10;i++)
+{
+printf(„Wert des Feldes mit Index %d: %d\n“,i,userZahl[i]);
+}
+}
+
+Arrays können natürlich auch vom Typ char, float, oder double sein. In jedem dieser Fälle gilt jedoch: Alle Felder eines Arrays sind vom selben Typ!
+
+Elbette diziler char, float veya double türünde de olabilir. Ancak bu durumların her birinde aşağıdakiler geçerlidir: Bir dizideki tüm alanlar aynı türdendir!
+
+Dieser Wert ist in sofern „konstant“ als dass er bei jedem Programm-Aufruf stets den selben Wert (hier: 10) besitzen wird. Der Wert ist also schon vor der Kompilierung eindeutig festgelegt.
+
+Bu değer "sabittir", çünkü program her çağrıldığında her zaman aynı değere (burada: 10) sahip olacaktır. Bu nedenle değer, derlemeden önce zaten açıkça tanımlanmıştır.
+
+– Definition (variable Länge) – tanım (değişken uzunluk)
+
+Dieser Wert ist in sofern „variabel“ als dass er bei jedem Programm-Aufruf durch den User (oder einen Zufallsgenerator) neu bestimmt werden kann. Der Wert wird also erst zur Laufzeit eindeutig festgelegt.
+
+Bu değer, program her çağrıldığında kullanıcı (veya rastgele sayı üreteci) tarafından yeniden belirlenebildiği için "değişkendir". Bu nedenle değer, yalnızca çalışma zamanında açıkça tanımlanır.
+
+…
+main()
+{
+…
+zuf=rand()%1000;
+int userZahl[zuf];
+…
+}
+
+„Intelligente“ Compiler kommen damit zu Recht. Da das kompilierte Programm allerdings nicht auf jeden System laufen wird, und da zudem die Bestimmung der Länge eines Arrays zur Laufzeit des Programmes nicht dem (aktuellen) ANSI C-Standard entspricht, wird im allgemeinen von einem solchen Vorgehen abgeraten.
+
+“Akıllı” derleyiciler bunu halledebilir. Ancak derlenen program her sistemde çalışmayacağından ve programın çalışma zamanında bir dizinin uzunluğunun belirlenmesi (geçerli) ANSI C standardına uymadığından, böyle bir yaklaşım genellikle önerilmez.
+
+
+
+
+
+
+
+
+
+
+Beispielaufgabe – Quellcode – Überschreiten der Feldergrenzen
+Örnek görev - kaynak kodu - alan sınırlarını aşma
+
+# include<stdio.h>
+main()
+{
+int userZahl[10];
+…………………
+}
+
+Durch diese Deklaration und Definition wurde ein (Integer)-Array der Länge 10 eingeführt. Für das Programm wurden somit die Felder userZahl[0], userZahl[1], userZahl[2], … bis userZahl[9] reserviert.
+
+Bu bildirim ve tanım, 10 uzunluğunda bir (tamsayı) dizi tanıttı. Böylece, userNumber[0], userNumber[1], userNumber[2], ... ile userNumber[9] arasındaki alanlar program için ayrıldı.
+
+# include<stdio.h>
+main()
+{
+int userZahl[10];
+userZahl[-3]=77;
+userZahl[10]=1000;
+userZahl[15]=25;
+…………
+}
+Trotz dieser Deklaration und Definition kann man dann allerdings „gemeinerweise“ dennoch mit Feldern arbeiten, deren Speicherstellen vor, oder hinter dem reservierten Bereich liegen, OHNE dass dies vom Compiler als Fehler erkannt wird.
+
+Ancak bu bildirime ve tanıma rağmen, derleyici bunu bir hata olarak algılamadan, bellek konumları ayrılmış alandan önce veya sonra olan alanlarla "genel olarak" çalışmaya devam edebilirsiniz.
+
+Da dies dazu führen kann, dass Ihr Programm gelegentlich einwandfrei läuft, bei anderen Durchläufen hingegen abstürzt, sind solche Fehler nicht immer leicht zu finden.
+
+Bu, programınızın ara sıra düzgün çalışmasına, ancak diğer çalıştırmalarda çökmesine neden olabileceğinden, bu tür hataları bulmak her zaman kolay değildir.
+
+Der Programmierer sollte sich daher dieser Fehlerquelle bewusst sein, und sich bemühen, diese zu vermeiden! 
+
+Bu nedenle programcı bu hata kaynağının farkında olmalı ve bundan kaçınmaya çalışmalıdır!
+
