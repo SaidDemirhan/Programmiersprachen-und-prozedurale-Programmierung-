@@ -194,5 +194,112 @@ Schleifen
       }
       printf(“Die Schleife endete, denn der Zähler hat den Wert %d“,zaehler);
     }
-
+###############################################################################
  
+Kopfgesteuerte Schleife: WHILE FOR
+Fußgesteuerte Schleife: DO-WHILE
+
+Zähler: Sayac
+
+Eger bir döngüde sayac kullanilacaksa kafa kontrollü döngüler tercih edilmelidir. Özellikle for döngüsü
+
+-----------------------------------------------------------------------
+
+MODULO OPERATOR
+  
+  Der Modulo-Operator ermittelt den Rest beim ganzzahligen Teilen.
+  Modulo operatörü, tamsayılara bölerken kalanı belirler.
+  
+  # include<stdio.h>
+  main(){
+    int a,b;
+    printf(“Geben Sie bitte eine beliebige ganze Zahl ein: “);
+    fflush(stdin);
+    scanf(“%d“,&a);
+    printf(“Geben Sie bitte eine ganze Zahl ungleich 0 ein: “);
+    fflush(stdin);
+    scanf(“%d“,&b);
+    printf(“%d geteilt durch %d ergibt: %d Rest %d“,a,b,a/b,a%b);
+  }
+
+-----------------------------------------------------------------------
+
+Zufallszahlen - Rastgele Sayılar
+
+  # include<stdio.h>
+  # include<stdlib.h>
+  main(){
+    int x;
+    x= rand();
+    printf(“Die Variable x hat aktuell den Wert: %d“,x);
+  }
+-----
+Initialisierung des Zufallsgenerators
+Rastgele sayı üretecinin başlatılması
+  # include<stdio.h>
+  # include<stdlib.h>
+  # include<time.h>
+  main(){
+    int x;
+    srand(time(NULL));
+    x= rand();
+    printf(“Die Variable x hat aktuell den Wert: %d“,x);
+  }
+-----
+random fonksiyonu kullaniminda ayni sayilari sirasiyla verebilir ve 
+bunu önlemek icin ilk sayiyi ignore edebiliriz.
+
+  # include<stdio.h>
+  # include<stdlib.h>
+  # include<time.h>
+  main(){
+    int x;
+    srand(time(NULL));
+    rand();
+    x= rand();
+    printf(“Die Variable x hat aktuell den Wert: %d“,x);
+  }
+-----
+
+RAND_MAX degeri
+
+    # include<stdio.h>
+    # include<stdlib.h>
+    main(){
+      printf(“Der Maximalwert der Zufallsliste lautet: %d“,RAND_MAX);     //32767
+    }
+    
+-----
+Eger Randomda kisitlama yapmak isteresek:
+
+  Würfeln: ……. Zahl zwischen (beiderseits einschließlich) 1 und 6       : rand()%6+1
+  Lotto: ……….. Zahl zwischen (beiderseits einschließlich) 1 und 49      : rand()%49+1
+  Allgemein: ….. Zahl zwischen (beiderseits einschließlich) a und b     : rand()%(b-a+1)+a
+
+-------------------------------------------------------------------
+
+Arrays
+
+kullanicidan 10 sayi isteyip bunlari bir array a kaydedip sonra yazdiralim.
+
+# include<stdio.h>
+main(){
+  int i;
+  int userZahl[10]; 		
+  for(i=0;i<10;i++){
+    printf(„Geben Sie bitte eine ganze Zahl ein:“);
+    fflush(stdin);
+    scanf(„%d“,&userZahl[i]);
+  }
+  for(i=0;i<10;i++){
+    printf(„Wert des Feldes mit Index %d: %d\n“,i,userZahl[i]);
+  }
+}
+
+
+
+
+
+
+
+
