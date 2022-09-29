@@ -1,0 +1,189 @@
+V_02_04
+Programmierung(1)
+Agenda
+Zufallszahlen Rastgele Sayılar
+Motivation
+Darstellung in PAP, Struktogramm, Pseudocode
+Syntax in ANSI C
+vorgegebener Zahlenbereich
+selbstbestimmter Zahlenbereich
+Initialisierung des Zufallsgenerators
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+
+Zufallszahlen – Motivation Rastgele Sayılar - Motivasyon
+Programme werden (in der Regel) erst interessant, wenn diese interaktiv auf (z.B.) User-Eingaben reagieren (und also nicht bei jedem Programmdurchlauf zu den selben Ergebnissen führen).
+Programlar (genellikle) yalnızca (örneğin) kullanıcı girdisine etkileşimli olarak tepki verdiklerinde ilginç hale gelirler (ve bu nedenle program her çalıştırıldığında aynı sonuçlara yol açmazlar).
+
+Während der Testphase solcher Programme, muss der Programmierer jedoch selbst dafür sorgen, dass diese (User)-Eingaben vollständig durchgeführt werden, was im Einzelfall recht zeitaufwendig sein kann.
+Bununla birlikte, bu tür programların test aşamasında, programcı bu (kullanıcı) girdilerinin tamamen gerçekleştirilmesini sağlamalıdır, bu da bireysel durumlarda oldukça zaman alıcı olabilir.
+
+Eine Abhilfe bieten hier Zufallszahlen, die vom Programm selbst erzeugt werden und somit die entsprechenden (User)-Eingaben simulieren können.
+Programın kendisi tarafından oluşturulan ve dolayısıyla ilgili (kullanıcı) girişlerini simüle edebilen rastgele sayılar burada bir çözüm sunar.
+
+Hinweise: İpuçları:
+• Auf das Auslosen von einzelnen Zeichen werden wir im Moment noch verzichten, und darauf erst zurückkommen, wenn wir uns näher mit der Darstellung der Character im ASCII-Code beschäftigt haben.
+• Şimdilik, tek tek karakterler çizmekten kaçınacağız ve buna ancak karakterlerin ASCII kodundaki temsilini daha yakından ele aldığımızda geri döneceğiz.
+
+• Dies gilt erst Recht für das Auslosen von Wörtern oder Sätzen (Zeichenketten), für die uns noch einige Voraussetzungen fehlen.
+• Bu, daha çok, bir takım önkoşullardan yoksun olduğumuz kelimeler veya cümleler (karakter dizileri) çizmek için geçerlidir.
+
+• Technisch betrachtet werden wir zunächst nur in die Lage gesetzt, ganze Zahlen auszulosen. Eine entsprechende Erweiterung auf Kommazahlen wird Gegenstand einer Übungsaufgabe sein.
+• Teknik açıdan, başlangıçta sadece tam sayıları çizebiliyoruz. Ondalık sayılara karşılık gelen bir uzantı, bir alıştırmanın konusu olacaktır.
+
+Zufallszahlen – Beispielaufgabe
+Als einen ersten Einstieg betrachten wir zunächst eine bewusst einfach gehaltene Aufgabe.
+Rastgele sayılar - örnek görev
+İlk adım olarak, kasıtlı olarak basit tutulan bir görevi ele alacağız.
+
+Dies erscheint sinnvoll, da wir uns zum einen auf die eigentliche Thematik konzentrieren wollen, und da zum anderen weder bei PAP, Struktogramm noch Pseudocode eine festgelegte Symbolik für Zufallszahlen existiert.
+Bu mantıklı, çünkü bir yandan asıl konuya odaklanmak istiyoruz ve diğer yandan PAP, structogram veya sözde kodda rastgele sayılar için sabit bir sembolizm yok.
+
+Ferner werden wir bei der Erstellung des entsprechenden Quellcodes einen lehrreichen Einstieg in dieses Themenfeld erhalten und daher im Anschluss leicht einsehen können, dass die von ANSI C zur Verfügung gestellte Technologie im allgemeinen noch ergänzt werden muss.
+Ayrıca, ilgili kaynak kodunu oluştururken, bu konuya yönelik öğretici bir giriş alacağız ve bu nedenle, daha sonra ANSI C tarafından sağlanan teknolojinin genellikle hala desteklenmesi gerektiğini kolayca görebiliriz.
+
+Aufgabenstellung: Görev:
+Das Programm soll zunächst eine Variable x mit einer beliebigen (ganzzahligen) Zufallszahl initialisieren.
+Program önce bir x değişkenini rastgele (tamsayı) rastgele bir sayı ile başlatmalıdır.
+
+Anschließend soll der Wert von x auf der Konsole ausgegeben und das Programm beendet werden.
+Daha sonra x'in değeri konsola çıkarılacak ve program sonlandırılacaktır.
+
+Beispielaufgabe – PAP
+Start
+x=Zufallszahl 
+Ausgabe: x
+Ende
+
+
+Beispielaufgabe – Struktogramm
+x=Zufallszahl
+Ausgabe: x
+
+Beispielaufgabe – Pseudocode
+Programm „Zufalls-Beispiel“
+{
+x=Zufallszahl
+Ausgabe: x
+}
+
+Beispielaufgabe – Quellcode
+# include<stdio.h>
+# include<stdlib.h>
+main()
+{
+int x;
+x= rand();
+printf(“Die Variable x hat aktuell den Wert: %d“,x);
+}
+ 
+
+Quellcode – Notwendige Ergänzungen(1a)
+Kaynak Kodu - Gerekli İlaveler(1a)
+Ein mehrfaches Ausführen des bisherigen Quellcodes wird nun aber zeigen, dass stets der selbe „Zufalls“-Wert ausgegeben wird. Dies kann wie folgt erklärt werden:
+Ancak, önceki kaynak kodunu birden çok kez çalıştırmak artık aynı "rastgele" değerin her zaman çıktılandığını gösterecektir. Bu şu şekilde açıklanabilir:
+
+(Klassische) Computer sind nicht dazu ausgelegt, zufällige Aktionen auszuführen. Vielmehr erwarten wir von ihnen, dass die von uns aufgerufenen Befehle verlässlich (und also nicht zufällig) abgearbeitet werden.
+(Klasik) bilgisayarlar rastgele eylemler gerçekleştirmek üzere tasarlanmamıştır. Bunun yerine, dediğimiz komutları güvenilir bir şekilde (rastgele değil) işlemelerini bekleriz.
+
+Um dennoch mit (Pseudo)-Zufallszahlen arbeiten zu können, wird eine künstlich erzeugte Liste von „wild durcheinander gewürfelten“ Zahlen verwendet, die von der bereits vorgestellten rand()-Funktion der Reihe nach ausgelesen werden.
+(Sahte)rastgele sayılarla çalışmaya devam edebilmek için, daha önce sunulan Rand() işlevi tarafından birbiri ardına okunan yapay olarak oluşturulmuş bir "çılgınca karışık" sayılar listesi kullanılır.
+
+Wenn daher innerhalb eines einzigen Programmablaufs durch wiederholtes Aufrufen von rand() mehrere (Pseudo)-Zufallszahlen ermittelt werden, so wirkt diese Zahlenfolge auf den ersten Blick tatsächlich zufällig.
+Bu nedenle, birden fazla (sözde) rasgele sayı, tekrar tekrar Rand() çağrılarak çalıştırılan tek bir program içinde belirlenirse, bu sayı dizisi aslında ilk bakışta rasgele görünür.
+
+Bei einem erneuten Aufruf des selben Programmes wird sich dann aber zeigen, dass die selbe Zahlenfolge erscheint, da schlicht die identische Liste in der selben Reihenfolge ausgelesen wird.
+Aynı programı tekrar çağırırsanız, aynı liste basitçe aynı sırayla okunduğundan, aynı numara dizisinin göründüğünü gösterecektir.
+
+Um dieses Problem zu lösen, werden wir die Startposition stets in Abhängigkeit der aktuell gültigen „Uhrzeit“ ermitteln. (genauer: Anzahl der Sekunden seit dem 01.01.1970)
+Bu sorunu çözmek için, o anda geçerli olan "zamana" bağlı olarak her zaman başlangıç pozisyonunu belirleyeceğiz. (daha doğrusu: 01/01/1970'den bu yana geçen saniye sayısı)
+
+• Eine solche Zuweisung der Startposition („Initialisierung des Zufallsgenerators“ ) ist dann zwar streng genommen keineswegs zufällig, bleibt für den User aber dennoch vollkommen unvorhersehbar, zumal er die zigtausende Einträge umfassende Liste von (Pseudo)-Zufallszahlen üblicherweise nicht auswendig lernte … oder Monk heißt ;-)
+• Açıkça söylemek gerekirse, böyle bir başlangıç konumu ataması ("rastgele sayı üretecinin başlatılması") hiçbir şekilde rastgele değildir, ancak özellikle (sözde) listesini genellikle ezberlemediğinden, kullanıcı için tamamen öngörülemez kalır. on binlerce girişten oluşan rastgele sayılar ... veya Monk olarak adlandırılan ;-)
+
+Notwendige Ergänzungen(1a) – Initialisierung des Zufallsgenerators
+Gerekli eklemeler(1a) - Rastgele sayı üretecinin başlatılması
+
+# include<stdio.h>
+# include<stdlib.h>
+# include<time.h>
+main()
+{
+int x;
+srand(time(NULL));
+x= rand();
+printf(“Die Variable x hat aktuell den Wert: %d“,x);
+}
+
+Quellcode – Notwendige Ergänzungen(1b)
+Kaynak Kodu - Gerekli İlaveler(1b)
+
+Obwohl die Initialisierung des Startgenerators im Prinzip bereits ausreichen sollte, zeigt sich bei zwei kurz nacheinander stattfindenden Programm-Durchläufen jedoch, dass der erste ermittelte Zufallswert eines Programm-Durchlaufs nur unwesentlich größer ist, als der erste Zufallswert des vorangegangen Durchlaufs.
+Başlatma jeneratörünün başlatılması prensipte yeterli olsa da, hızlı bir şekilde art arda gerçekleşen iki program çalıştırması, bir program çalışmasının ilk belirlenen rastgele değerinin, önceki çalıştırmanın ilk rastgele değerinden sadece biraz daha büyük olduğunu gösterir.
+
+Dies kann dadurch umgangen werden, dass nach der Initialisierung des Zufallsgenerators der erste Aufruf der rand()-Funktion bewusst ungenutzt bleibt. (siehe Musterlösung der kommenden Folie)
+Rastgele sayı üretecini başlattıktan sonra Rand() işlevinin ilk çağrısını kasıtlı olarak kullanmayarak bu önlenebilir. (bir sonraki slayttaki örnek çözüme bakın)
+
+Wichtiger Hinweis: Önemli Not:
+Die Initialisierung des Startgenerators darf pro Programm nur einmalig stattfinden (und sollte vor dem ersten Aufruf der rand()-Funktion geschehen), da sich in allen anderen Fällen die ermittelten „Zufallswerte“ in der identischen Reihenfolge wiederholen.
+Başlatma üretecinin başlatılması, program başına yalnızca bir kez gerçekleşebilir (ve Rand() işlevinin ilk çağrısından önce yapılmalıdır), çünkü belirlenen "rastgele değerler" diğer tüm durumlarda aynı sırada tekrarlanır.
+
+Notwendige Ergänzungen(1b) – einmalig ungenutzter rand()-Aufruf
+Gerekli eklemeler(1b) - Bir kerelik kullanılmayan Rand() çağrısı
+
+# include<stdio.h>
+# include<stdlib.h>
+# include<time.h>
+main()
+{
+int x;
+srand(time(NULL));
+rand();
+x= rand();
+printf(“Die Variable x hat aktuell den Wert: %d“,x);
+}
+
+Quellcode – Notwendige Ergänzungen(2a)
+Kaynak Kodu - Gerekli İlaveler(2a)
+
+Wir haben bisher (zumindest dem Anschein nach) „beliebige“ Zufallszahlen ermitteln lassen.
+Tatsächlich lagen diese Werte aber zwischen (beiderseits einschließlich) 0 und einem gesetzten „Maximalwert“, den wir mittels der (Integer)-Konstanten RAND_MAX auslesen können:
+Şimdiye kadar (en azından görünüşe göre) "keyfi" rastgele sayılar belirledik.
+Aslında, bu değerler (her ikisi de dahil) 0 ile (tamsayı) sabit RAND_MAX kullanarak okuyabileceğimiz bir dizi "maksimum değer" arasındaydı:
+
+# include<stdio.h>
+# include<stdlib.h>
+main()
+{
+printf(“Der Maximalwert der Zufallsliste lautet: %d“,RAND_MAX);
+}
+
+ 
+
+Oft wollen wir allerdings nur eine bestimmte Folge von Zufallszahlen zulassen, Beispiele:
+Ancak, genellikle yalnızca belirli bir rastgele sayı dizisine izin vermek isteriz, örnekler:
+
+Würfeln: ……. Zahl zwischen (beiderseits einschließlich) 1 und 6
+Lotto: ……….. Zahl zwischen (beiderseits einschließlich) 1 und 49
+Allgemein: ….. Zahl zwischen (beiderseits einschließlich) a und b
+
+
+
+
+
+
+
+
+Diese Einschränkung auf einen Bereich von (unmittelbar aufeinander folgenden, ganzzahligen) Werten gelingt uns aber relativ leicht mittels des Modulo-Operators:
+Ancak, modulo operatörünü kullanarak bu kısıtlamayı bir dizi (doğrudan ardışık, tamsayı) değere nispeten kolayca başarabiliriz:
+
+Würfeln: …... rand()%6+1
+Lotto: …….... rand()%49+1
+Allgemein: … rand()%(b-a+1)+a
+
+Hinweis:
+Gelegentlich könnte es auch von Interesse sein, einen beliebigen Wert aus einer Menge von nicht unmittelbar aufeinanderfolgenden Werten auszulosen. Also zum Beispiel einen Wert aus der Menge {-13; 5; 77; …}. Um dieses Problem elegant zu lösen, benötigen wir noch Kenntnisse, die wir uns erst im weiteren Verlauf des Kurses aneignen werden. Die Frage, wie dies (weniger elegant) bereits mit unseren aktuellen Kenntnissen gelingt, wird Gegenstand einer Übungsaufgabe sein.
+
+Bir uyarı:
+Bazen, ardışık olmayan bir dizi değerden herhangi bir değer çıkarmak da ilgi çekici olabilir. Örneğin, {-13; 5; 77; …}. Bu sorunu zarif bir şekilde çözmek için, ancak kursta daha sonra edineceğimiz bilgilere ihtiyacımız var. Mevcut bilgimizle bunun (daha az zarif) nasıl yapılabileceği sorusu bir alıştırmanın konusu olacaktır.
+
