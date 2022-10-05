@@ -1,0 +1,213 @@
+V_03_02
+Programmierung(1)
+Agenda
+(selbsterzeugte) Funktionen(II) (Funktionen mit Rückgabewert)
+(kendi kendine oluşturulan) işlevler(II) (dönüş değeri olan işlevler)
+Motivation
+EVA-Prinzip
+Vermeidung eines „Seiteneffekts“
+Beispielaufgabe
+Darstellung in PAP, Struktogramm, Pseudocode
+Syntax in ANSI C
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+Funktionen(II) – Motivation – EVA-Prinzip
+Wir haben Funktionen auch schon als „(Unter)-Programme“ bezeichnet und bei Programmen im Allgemeinen über das sogenannte EVA-Prinzip gesprochen.
+Fonksiyonlardan zaten "(alt)programlar" olarak bahsettik ve genel olarak programlar için sözde EVA ilkesinden bahsettik.
+
+Dieses Prinzip können wir nun auch vollständig bei Funktionen abbilden(EVA):
+E(ingabe) bei Funktionen geschieht durch die Übergabewerte
+V(erarbeitung) bei Funktionen entspricht der Funktionalität des Funktions-Codes
+A(usgabe) lernen wir heute in Form eines Rückgabewertes kennen
+Artık bu prensibi fonksiyonlarla (EVA) tamamen eşleştirebiliriz:
+Fonksiyonlar için E(giriş) transfer değerleri üzerinden yapılır.
+İşlevler için V(işleme), işlev kodunun işlevselliğine karşılık gelir
+Bugün A(çıktı)yı bir dönüş değeri şeklinde öğreneceğiz.
+
+Hinweise:
+- Für die Anzahl der Übergabewerte gibt es nach oben (zumindest theoretisch) keine Grenzen.
+- Pro Funktion kann es aber stets nur genau einen Rückgabewert geben.
+- Das Zurückgeben eines Rückgabewertes ist gleichbedeutend mit dem Ende der Funktion (und dem weiteren Abarbeiten der Hauptfunktion).
+- Der Rückgabewert wird genau an jener Stelle zurückgegeben, von der die Funktion aufgerufen worden war.
+İpuçları:
+- Aktarım değerlerinin sayısı için (en azından teorik olarak) herhangi bir üst sınır yoktur.
+- Ancak, işlev başına yalnızca tam olarak bir dönüş değeri olabilir.
+- Bir dönüş değeri döndürmek, işlevi sonlandırmaya (ve ana işlevi işlemeye devam etmeye) eşdeğerdir.
+- Döndürülen değer, tam olarak işlevin çağrıldığı noktada döndürülür.
+
+
+
+
+– Seiteneffekt - yan etki
+Wir hatten bisher ausschließlich Funktionen kennen gelernt, die alleine durch ihren Aufruf bereits eine Wirkung hatten (bzw. einen „Effekt“ zeigten).
+Şimdiye kadar etkisi olan (veya “etki” gösteren) fonksiyonları sadece çağrılarak bildik.
+
+Diese Wirkung wird in der Informatik Seiteneffekt genannt.
+Bu etkiye bilgisayar bilimlerinde yan etki denir.
+
+Beispiel für einen unerwünschten Seiteneffekt:
+Eine Funktion gibt auf der Konsole das Ergebnis einer Berechnung aus. Tatsächlich wird dadurch aber die Wiederverwertbarkeit
+der Funktion eingeschränkt, denn der Programmierer könnte andere Ziele haben:
+İstenmeyen bir yan etki örneği:
+Bir işlev, bir hesaplamanın sonucunu konsola döndürür. Aslında, bu geri dönüştürülebilirliği artırır
+işlevde sınırlıdır, çünkü programcının başka amaçları olabilir:
+
+Der Ausgabetext hätte in einer anderen Sprache erfolgen sollen.
+Der berechnete Wert hätte gar nicht auf der Konsole erscheinen sollen, sondern sollte (z.B.) in einer Datenbank abgespeichert werden.
+Vor der Weiterverwertung des Rechenergebnisses hätte dieses überprüft werden müssen.
+…
+Çıktı metni farklı bir dilde olmalıdır.
+Hesaplanan değer konsolda hiç görünmemeli, (örneğin) bir veritabanında saklanmalıdır.
+Hesaplama sonucunun daha fazla kullanılabilmesi için kontrol edilmesi gerekirdi.
+...
+Durch die Einführung von Rückgabewerten kann der Seiteneffekt aber vermieden werden, denn der Programmierer kann nun selbst entscheiden, wie (und ob) der Rückgabewert genutzt wird.
+Bununla birlikte, yan etki, dönüş değerleri girilerek önlenebilir, çünkü programcı artık dönüş değerinin nasıl (ve kullanılıp kullanılmayacağını) kendisi için karar verebilir.
+
+Funktionen(II) – Beispielaufgabe Fonksiyonlar(II) - örnek görev
+
+
+
+Wir werden als Beispiel eine „vollständige“ Funktion betrachten, die mehrere Übergabewerte besitzt, selbstverständlich eine Verarbeitung vornehmen wird, und anschließend (genau) einen Rückgabewert liefert.
+Örnek olarak, birkaç transfer değerine sahip, elbette bazı işlemler yapacak ve sonra (tam olarak) bir değer döndüren bir "tamamlanmış" işlevi ele alacağız.
+
+Das Beispiel arbeitet zunächst ausschließlich mit ganzen Zahlen. Die Übergabewerte und der Rückgabewert können aber natürlich auch beliebige andere Typen besitzen – dies werden wir in den Übungsaufgaben erleben.
+Örnek başlangıçta yalnızca tam sayılarla çalışır. Elbette transfer değerleri ve dönüş değeri başka herhangi bir türde olabilir - bunu alıştırmalarda deneyimleyeceğiz.
+
+Aufgabenstellung:
+Das Programm startet mit der Abfrage zweier ganzer Zahlen x und y. Anschließend wird eine Funktion [siehe unten] mit den Übergabewerten x und y aufgerufen. Nach dem Abarbeiten der Funktion wird deren Rückgabewert in der Variable min gespeichert. Der Wert von min wird auf der Konsole ausgegeben und das Programm endet.
+Görev:
+Program iki tamsayı x ve y sorarak başlar. Daha sonra x ve y transfer değerleriyle bir fonksiyon [aşağıya bakın] çağrılır. Fonksiyon işlendikten sonra dönüş değeri min değişkeninde saklanır. Konsola min değeri yazdırılır ve program sona erer.
+
+Zur Funktion:
+Name: ……………. sucheMin
+Übergabewerte: .... 2 Integer a und b
+Funktionalität: …… ermittelt das Minimum aus a und b
+Rückgabewert: ...… das ermittelte Minimum
+İşlev hakkında:
+Soyadı: ……………. aramaMin
+Aktarım değerleri: .... 2 tamsayı a ve b
+İşlevsellik: …… a ve b'den minimumu belirler
+Dönüş değeri: ...… belirlenen minimum
+
+
+Beispielaufgabe – PAP
+Start
+Eingabe: x
+Eingabe: y
+min=sucheMin(x,y) 		
+//Verweis auf eine Funktion, dargestellt in einem eigenen PAP
+Ausgabe: min
+Ende
+
+sucheMin(a,b)
+Start
+a<=b
+ja
+Rückgabewert: a
+nein
+Rückgabewert: b
+ 
+– Struktogramm 
+Eingabe: x
+Eingabe: y
+min=sucheMin(x,y) 
+//Verweis auf eine Funktion, dargestellt in einem eigenen Struktogramm
+Ausgabe: min 
+sucheMin(a,b)
+a<=b
+ja 
+Rückgabewert: a 
+nein
+Rückgabewert: b
+ 
+
+– Pseudocode
+Programm „Beispiel_Rückgabewert“
+{
+Eingabe: x
+Eingabe: y
+min=sucheMin(x,y)
+Ausgabe: min
+}
+
+Verweis auf eine Funktion 
+
+Funktion „sucheMin(a,b)“
+{
+falls(a<=b)
+{
+return a
+}
+sonst
+{
+return b
+}
+}
+
+
+– Quellcode
+# include<stdio.h>
+
+int sucheMin(int a, int b){
+if(a<=b){
+return a;
+}
+else{
+return b;
+}
+}
+
+main(){
+int x,y,min;
+printf(“Bitte erste Zahl eingeben: “);
+fflush(stdin);
+scanf(“%d“,&x);
+printf(“Bitte zweite Zahl eingeben: “);
+fflush(stdin);
+scanf(“%d“,&y);
+min=sucheMin(x,y);
+printf(“Das Minimum aus %d und %d ist %d“,x,y,min);
+}
+
+
+
+
+-----------------------------------------
+int sucheMin(int a, int b) = Typ des Rückgabewertes
+int main() & return 0; = Rückgabewert des main 
+void main() =void (bei Rückgabewert)  (keine return 0;) 
+int main(void)= void (bei Übergabewert) 
+void main(void)= void (bei beiden Werten) (keine return 0;)
+int main(void) & return 0; = zukünftige Vorgehensweise
+
+int searchMin(int a, int b) = dönüş değeri türü
+int ana() & 0 döndür; = ana dönüş değeri
+void main() =void (dönüş değeri ise) (dönüş 0 yok;)
+int main(void)= void (aktarım değeri için)
+void main(void)= void (her iki değer için) (dönüş 0 yok;)
+int main(void) & 0 döndür; = gelecekteki eylem planı
+
+
+
+Wir haben bereits gesehen, dass wir bei Funktionen ohne Übergabewert (und/oder Rückgabewert) auf void verzichten könnten.
+
+Es gilt aber als guter Stil, void zu notieren.
+
+Zudem gibt es Programmiersprachen, die die Verwendung von void zwingend vorschreiben und also z.B. eine Schreibweise der Form main() nicht zulassen würden.
+
+Zukünftig wollen wir daher wie folgt vorgehen:
+a) Bei selbsterstellten Funktionen schreiben wir für fehlende Übergabe- und/ oder Rückgabe-Werte in beiden Fällen void
+
+b) Bei der main-Funktion verwenden wir void für den fehlenden Übergabewert. Als Rückgabewert setzen wir 0 vom Typ int.
+
+Transfer değeri (ve/veya dönüş değeri) olmayan fonksiyonlar için void olmadan yapabileceğimizi daha önce görmüştük.
+
+Ancak, void yazmak için iyi bir stil olarak kabul edilir.
+
+Ayrıca void kullanımını zorunlu kılan ve bu nedenle örneğin main() gibi bir gösterime izin vermeyen programlama dilleri vardır.
+
+Gelecekte, bu nedenle aşağıdaki gibi ilerlemek istiyoruz:
+a) Kendi kendine yaratılan fonksiyonlarda, her iki durumda da eksik transfer ve/veya dönüş değerleri için void yazıyoruz.
+
+b) Ana fonksiyonda eksik transfer değeri için void kullanıyoruz. Dönüş değeri olarak int türünde 0 ayarladık.
+
