@@ -1,0 +1,196 @@
+V_03_01
+Programmierung(1)
+Agenda
+(selbsterzeugte) Funktionen(I) (Prozeduren)
+(kendi kendine oluşturulan) fonksiyonlar(I) (prosedürler)
+Motivation
+3 Beispielaufgaben
+ohne Übergabewerte transfer değerleri olmadan
+mit einem Übergabewert transfer değeri olan
+mit mehreren Übergabewerten çoklu transfer değerleri ile
+Darstellung in PAP, Struktogramm, Pseudocode
+Syntax in ANSI C
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+(selbsterzeugte) Funktionen(I) Prozeduren – 
+(kendi kendine oluşturulan) fonksiyonlar(I) (prosedürler)
+Motivation
+Eine wichtige Idee bei der Softwareentwicklung ist das Erstellen von wiederverwertbarem Code.
+Yazılım geliştirmede önemli bir fikir, yeniden kullanılabilir kod oluşturmaktır.
+
+Auch die uns bereits bekannte Funktion printf(…) verfolgt diesen Gedanken, denn sie wurde ein einziges mal codiert und mittlerweile schon millionenfach genutzt.
+Zaten aşina olduğumuz printf(...) işlevi de bu fikri takip ediyor, çünkü bir kez kodlandı ve şimdi milyonlarca kez kullanıldı.
+
+Es handelt sich dabei im Prinzip um kleine „eigenständige“ Unterprogramme, die während eines Hauptprogrammes immer dann gestartet werden, wenn deren Funktionalität benötigt wird.
+Prensipte bunlar, işlevleri gerektiğinde bir ana program sırasında her zaman başlatılan küçük "bağımsız" alt programlardır.
+
+Da Funktionen von einem Hauptprogramm aus gestartet werden, können wir diese nur testen, wenn wir zusätzlich zu der von uns geschriebenen Funktion auch ein (dann aber in der Regel nur sehr kleines) Hauptprogramm erstellen. (Diesen Gedanken werden wir auch schon bei den Beispielaufgaben berücksichtigen.)
+ Fonksiyonlar bir ana programdan başlatıldığından, onları ancak yazdığımız fonksiyona ek olarak (ama genellikle çok küçük) bir ana program da oluşturursak test edebiliriz. (Örnek görevlerde de bu fikri dikkate alacağız.)
+
+
+Hinweis: Bir uyarı:
+Wir werden morgen Funktionen kennenlernen, die in ihrem Aufbau dem mathematischen Verständnis dieses Begriffes näher kommen werden. Um den Unterschied deutlich werden zu lassen, könnte man daher die heutigen Beispiele als Prozeduren bezeichnen (was in der Programmiersprache „Pascal“ auch tatsächlich so geschieht). In der IT hat es sich aber durchgesetzt, in beiden Fällen von Funktionen zu sprechen.
+Yarın bu kavramın matematiksel olarak anlaşılmasına yapısı yaklaşan fonksiyonları tanıyacağız. Farkı netleştirmek için, bugünün örnek prosedürleri (aslında "Pascal" programlama dilinde olan budur) olarak adlandırılabilir. Ancak BT'de, her iki durumda da işlevlerden bahsetmek yaygın bir uygulama haline geldi.
+
+Funktionen (Prozeduren) – Beispielaufgabe(I)
+Fonksiyonlar (Prosedürler) - Örnek Görev(I)
+
+Als einen ersten Einstieg werden wir zunächst die einfachste Form einer Funktion betrachten.
+İlk adım olarak, önce bir fonksiyonun en basit biçimini ele alacağız.
+
+Auf diese Weise werden wir kennenlernen, was bei jeder Funktion unverzichtbar ist.
+Bu şekilde, her bir işlevde neyin vazgeçilmez olduğunu öğreneceğiz.
+
+Zugleich werden wir nachvollziehen können, warum wir dieses Konzept noch ausbauen wollen, denn die in diesem ersten Beispiel vorgestellte Funktion ist in gewisser Hinsicht „wenig intelligent“, da sie weder interaktiv ist, noch etwas berechnet.
+Aynı zamanda, bu kavramı neden genişletmek istediğimizi anlayabileceğiz, çünkü bu ilk örnekte sunulan işlev, ne etkileşimli ne de herhangi bir şey hesaplamadığı için belirli bir açıdan "az zeki"dir.
+
+Aufgabenstellung:
+Das Programm startet mit einer Ausgabe: „Gleich wird eine Funktion aufgerufen:“
+Anschließend wird die Funktion „begruessung“ gestartet.
+Diese Funktion hat nur eine einzige Aufgabe, nämlich die Ausgabe von „Hallo zusammen!“
+Nachdem diese Funktion abgearbeitet wurde, geht es im Hauptprogramm weiter:
+Es folgt die Ausgabe: „Nun sind wir wieder im Hauptprogramm.“ und das Programm endet.
+Görev:
+Program şu çıktıyla başlar: "Yakında bir işlev çağrılacak:"
+Ardından "tebrik" işlevi başlatılır.
+Bu işlevin yalnızca bir görevi vardır, o da "Herkese merhaba!" yazdırmak.
+Bu fonksiyon işlendikten sonra ana program devam eder:
+Çıktı şu şekildedir: "Artık ana programa geri döndük." ve program sona erer.
+
+Beispielaufgabe – PAP
+Start
+Ausgabe:
+„ Gleich wird eine Funktion aufgerufen:“
+begruessung
+Ausgabe:
+„ Nun sind wir wieder im
+Hauptprogramm.“ 
+Ende
+ 
+– PAP – Symbol für Funktionen
+Begruessung
+
+
+Verweis auf eine Funktion, dargestellt in einem eigenen PAP
+Ayrı bir PAP'ta sunulan bir fonksiyona referans
+
+Start
+Ausgabe:
+„ Hallo zusammen!“
+Ende
+
+
+– Struktogramm
+Ausgabe:“Gleich wird eine Funktion aufgerufen:“
+begruessung 
+Ausgabe:“Nun sind wir wieder im Hauptprogramm.“
+Verweis auf eine Funktion, dargestellt in einem eigenen Struktogramm 
+Ausgabe:“Hallo zusammen!“
+
+ 
+
+
+– Pseudocode – Schreibweise für Funktionen
+Programm „Beispiel 1“
+{
+Ausgabe:“Gleich wird eine Funktion aufgerufen:“
+begruessung()		//Verweis auf eine Funktion
+Ausgabe:“Nun sind wir wieder im Hauptprogramm.“
+}
+
+Funktion „begruessung“
+{
+Ausgabe:“Hallo zusammen!“
+}
+
+– Quellcode – Schreibweise für Funktionen
+# include<stdio.h>
+begruessung()
+{
+printf(“Hallo zusammen!“);
+}
+		//Verweis auf eine Funktion
+main()
+{
+printf(“Gleich wird eine Funktion aufgerufen:“);
+begruessung();
+printf(“Nun sind wir wieder im Hauptprogramm.“);
+}
+Funktionen (Prozeduren) – Beispielaufgabe(II)
+Fonksiyonlar (Prosedürler) – Örnek Görev(II)
+Beim zweiten Beispiel wollen wir eine „intelligentere“ Funktion vorstellen.
+İkinci örnekte, "daha akıllı" bir fonksiyon sunmak istiyoruz.
+
+Gemeint ist: Die Funktion wird nicht stets das selbe leisten, sondern auf einen „Input“ reagieren.
+Anlatılmak istenen şudur: İşlev her zaman aynı şeyi yapmaz, ancak bir "girdi"ye tepki verir.
+
+Dieser Input wird als Übergabewert (oder auch: Parameter) bezeichnet.
+Bu giriş, transfer değeri (veya: parametre) olarak adlandırılır.
+
+Aufgabenstellung:
+Das Programm fragt zu Beginn den Lieblingsbuchstaben des Users ab.
+Anschließend wird die Funktion „meinLiebling“ gestartet.
+Als Übergabewert wird der Funktion der vom User eingegebene Buchstabe übergeben.
+Die Funktion meinLiebling arbeitet eine Schleife ab, um den Übergabewert 10-mal auf der Konsole auszugeben.
+Nachdem die Funktion beendet wurde, geht es im Hauptprogramm weiter:
+Es folgt die Ausgabe: „Feierabend!“ und das Programm endet.
+Görev:
+Program başlangıçta kullanıcının favori harfini sorar.
+Ardından "myFavorite" işlevi başlatılır.
+Kullanıcı tarafından girilen harf transfer değeri olarak fonksiyona iletilir.
+myDarling işlevi, iletilen değeri konsola 10 kez yazdırmak için döngü yapar.
+Fonksiyon sona erdikten sonra ana program devam eder:
+Çıktı şu şekildedir: "İş günü sonu!" ve program sona erer.
+
+– PAP – Übergabewert
+ 
+– Struktogramm
+ 
+
+– Pseudocode
+ 
+– Quellcode
+ 
+
+(char b)= Deklaration des Übergabewertes
+(char b)= transfer değerinin beyanı
+
+
+Funktionen (Prozeduren) – Beispielaufgabe(III)
+Fonksiyonlar (Prosedürler) – Örnek Görev(III)
+
+Beim dritten Beispiel wollen wir zeigen, wie man mit mehreren Übergabewerten vorgeht.
+Üçüncü örnekte, çoklu transfer değerleri ile nasıl devam edileceğini göstermek istiyoruz.
+
+Hierfür werden wir das vorangegangene Beispiel aufgreifen und ausbauen.
+Bunun için önceki örneği ele alıp genişleteceğiz.
+
+Anzahl und Typen der Übergabewerte sind beliebig, im Beispiel reichen uns 2 Parameter.
+Transfer değerlerinin sayısı ve türleri isteğe bağlıdır, örnekte 2 parametre bizim için yeterlidir.
+
+Aufgabenstellung:
+Das Programm fragt zu Beginn erneut den Lieblingsbuchstaben des Users ab.
+Daraufhin wird aber auch abgefragt, wie oft dieser Wert ausgegeben werden soll.
+Anschließend wird die Funktion „x_mal_meinZeichen“ gestartet.
+Als Übergabewerte werden der Funktion Buchstabe und Anzahl übergeben.
+Die Funktion x_mal_meinZeichen arbeitet eine Schleife ab, um den Buchstaben x-mal auf der Konsole auszugeben.
+Nachdem die Funktion beendet wurde, geht es im Hauptprogramm weiter:
+Es folgt die Ausgabe: „Jetzt ist aber genug!“ und das Programm endet.
+Görev:
+Başlangıçta program tekrar kullanıcının favori harfini sorar.
+Daha sonra bu değerin ne sıklıkta çıktısının alınması gerektiği sorulacaktır.
+Ardından "x_times_mycharacters" işlevi başlatılır.
+Harf ve sayı, fonksiyona transfer değerleri olarak iletilir.
+x_times_mycharacter işlevi, karakteri x kez konsola yazdırmak için döner.
+Fonksiyon sona erdikten sonra ana program devam eder:
+Çıktı şu şekildedir: "Artık bu kadar!" ve program sona erer.
+
+ 
+ 
+ 
+ 
+Im Rahmen der Definition einer selbsterstellten Funktion wird der Typ und die Reihenfolge aller Parameter festgelegt.
+Tüm parametrelerin türü ve sırası, kendi kendine oluşturulan bir işlevin tanımının bir parçası olarak tanımlanır
+Beim Aufruf dieser Funktion müssen dann aber natürlich Typ und Reihenfolge dieser Parameter beachtet werden. 
+
+Ancak bu fonksiyon çağrıldığında bu parametrelerin türü ve sırası elbette dikkate alınmalıdır.
