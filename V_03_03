@@ -1,0 +1,238 @@
+V_03_03
+Programmierung(1)
+Agenda
+USE CASE Diagramme
+Einordnung und Motivation
+Beispielaufgabe
+Akteur
+Anwendungsfall (Darstellung, Auslösung)
+System Boundary
+Inklusion
+Extension (Extension Point)
+Generalisierung (Akteur, Anwendungsfall)
+Ausführliches Training + Ergebnisbesprechung
+Fachpraktische Anwendungen
+
+Einordnung und Motivation
+sınıflandırma ve motivasyon
+Anwendungsfall-Diagramme (Use Case Diagram) gehören zu der graphischen Modellierungssprache UML (Unified Modeling Language), von der wir noch weitere Beispiele behandeln werden.
+Kullanım Durumu Diyagramları, daha fazla örneklerini ele alacağımız grafik modelleme dili UML'ye (Birleşik Modelleme Dili) aittir.
+
+Anwendungsfall-Diagramme werden zu Beginn des Projektmanagements erstellt, um einen ersten Einblick davon zu gewinnen, was ein zu erstellendes System aus Sicht des Users (Akteurs) leisten soll.
+Kullanım senaryosu diyagramları, oluşturulacak bir sistemin kullanıcı (aktör) açısından ne yapması gerektiğine dair bir ön fikir edinmek için proje yönetiminin başında oluşturulur.
+
+Folgende Aspekte des Zusammenspiels zwischen Anwender und Anwendungsfall sollen dargestellt bzw. berücksichtigt werden:
+Kullanıcı ve uygulama arasındaki etkileşimin aşağıdaki yönleri sunulmalı ve dikkate alınmalıdır:
+
+Welche Akteure werden das System nutzen?
+Welche Aktionen werden von welchem Akteur ausgeführt („ausgelöst“)?
+Welche (Folge)-Aktionen ergeben sich zwingend aus der Aktion eines Akteurs?
+Welche (Eventual)-Aktionen ergeben sich unter welchen Bedingungen?
+Wo können Spezialfälle zu einer Verallgemeinerung („Generalisierung“) zusammengefasst werden?
+Sistemi hangi aktörler kullanacak?
+Hangi aktör tarafından hangi eylemler gerçekleştirilir (“tetiklenir”)?
+Hangi (izleyen) eylemler, mutlaka bir aktörün eyleminden kaynaklanır?
+Hangi koşullar altında hangi (nihai) eylemler ortaya çıkar?
+Özel durumlar bir genelleme ("genelleme") içinde nerede birleştirilebilir?
+
+Anwendungsfall-Diagramme können für sehr unterschiedliche Projekte genutzt werden. Dies können Bauprojekte, IT-Projekte, aber auch die Organisation einer großen Familienfeier sein.
+Kullanım durumu diyagramları çok farklı projeler için kullanılabilir. Bu, inşaat projeleri, BT projeleri olabilir, aynı zamanda büyük bir aile kutlamasının organizasyonu olabilir.
+
+Unser erstes Beispiel betrachtet die Organisation eines Restaurants. Dabei kommt es uns nicht auf Vollständigkeit an, sondern lediglich darum, alle zu vermittelnde Symbole vorstellen zu können.
+İlk örneğimiz bir restoranın organizasyonunu ele alıyor. Bunu yaparken bizim için tamamlanmış olmak değil, sadece iletilecek tüm sembolleri sunabilmek önemlidir.
+
+Beispielaufgabe – Akteur
+Örnek Görev – Oyuncu
+
+Kunde müşteri
+Man spricht bei Akteuren von einer Rolle, nicht von einer konkreten Person. Deswegen schreiben wir hier „Kunde“ und nicht etwa „Herr Müller“
+Aktörler hakkında konuşurken, belirli bir kişiden değil, bir rolden bahsedilir. Bu yüzden buraya "Mr. Müller" değil "müşteri" yazıyoruz.
+
+Lesegerät okuyucu
+Akteure können auch Geräte oder Institutionen sein. Wichtig ist, dass es sich dabei um Entitäten handelt, die nicht zu jenem System zählen, das im Rahmen des Projekts erst erstellt werden soll, sondern um etwas Externes, bzw. etwas bereits Bestehendes.
+Aktörler ayrıca cihazlar veya kurumlar olabilir. Bunların, projenin parçası olarak oluşturulacak sistemin parçası olmayan, harici veya zaten var olan bir şey olması önemlidir.
+
+Kunde
+Alle Akteure müssen außerhalb der System Boundary notiert werden!
+Tüm aktörler sistem sınırlarının dışında not edilmelidir!
+
+Etwas bestellen
+Bir şey sipariş etmek
+
+Ein Anwendungsfall wird als Tätigkeit formuliert und in einer Ellipse notiert. Anwendungsfälle werden stets innerhalb der System Boundary eingetragen.
+Bir kullanım durumu, bir aktivite olarak formüle edilir ve bir elips içinde not edilir. Kullanım durumları her zaman sistem sınırları içinde girilir.
+
+Kunde
+Etwas bestellen
+
+Eine Verbindungslinie (ohne Pfeilspitzen) zwischen Akteur und Anwendungsfall zeigt auf, welcher Anwendungsfall durch welchen Anwender ausgelöst wird.
+Aktör ve kullanım durumu arasındaki bağlantı çizgisi (ok uçları olmadan), hangi kullanım durumunun hangi kullanıcı tarafından tetiklendiğini gösterir.
+
+Kunde
+Etwas bestellen<<include>>Bestellung bezahlen
+Bir şey sipariş edin<<include>>Sipariş için ödeme yapın
+
+Ein gestrichelter Pfeil (zusammen mit dem Text <<include>>) verweist auf Anwendungsfälle, die zwingend folgen. Die Pfeilspitze zeigt auf den zwingend folgenden Anwendungsfall.
+Kesikli bir ok (<<include>> metniyle birlikte) zorunlu kullanım durumlarını gösterir. Ok ucu, aşağıdaki kullanım durumunu gösterir.
+
+Kunde
+Etwas bestellen<<include>>Bestellung bezahlen <<extend>> Rückgeld auszahlen
+
+Bir şey sipariş edin<<include>>Sipariş için ödeme yapın <<extend>>
+Fazla verilen parayi (üstünü) geri verin.
+
+Ein gestrichelter Pfeil (zusammen mit dem Text <<extend>>) verweist auf Anwendungsfälle, die eventuell ergänzt werden. Die Pfeilspitze zeigt auf den eventuell ergänzten Anwendungsfall.
+
+Kesikli bir ok (<<extend>> metniyle birlikte) eklenebilecek kullanım durumlarını gösterir. Ok ucu, muhtemelen eklenen kullanım durumunu gösterir.
+
+Condition: falls Barzahlung und Zahlung nicht passend
+
+Durum: Nakit ödeme ve ödeme uyuşmuyorsa
+
+Ein Textfeld (mit „Eselsohr“) informiert über die Bedingung (Condition), die erfüllt seien muss, damit ein Anwendungsfall (hier: Bestellung bezahlen) durch einen weiteren (hier: Rückgeld auszahlen) ergänzt werden soll.
+
+Bir metin alanı ("köpek kulağı" ile birlikte) bir kullanım durumunun (burada: ödeme emri) bir diğeriyle (burada: ödeme değişikliği) desteklenmesi için karşılanması gereken koşul hakkında bilgi sağlar.
+
+Condition: falls Barzahlung und Zahlung nicht passend
+
+Durum: Nakit ödeme ve ödeme uyuşmuyorsa
+
+Durch die Verbindungslinie + (nicht ausgefülltem) Kreis wird deutlich gemacht, welche Bedingung sich auf welche Extension bezieht
+
+Bağlantı hattı + (açık) kapsam, hangi koşulun hangi uzantıyla ilgili olduğunu açıkça belirtir.
+
+Kunde
+Etwas bestellen<<include>>Bestellung bezahlen - Extension Point:
+Rückgeld- <<extend>> Rückgeld auszahlen
+
+Bir şey sipariş edin<<include>>Ödeme emri - Uzatma Noktası:
+Değiştir- <<extend>> değişikliği öde
+
+Condition: falls Barzahlung und Zahlung nicht passend
+Extension Point: Rückgeld
+
+Durum: Nakit ödeme ve ödeme uyuşmuyorsa
+Uzatma Noktası: Değiştir
+
+Jede Extension erhält einen Titel (hier: „Rückgeld“) Dieser Titel erscheint im Textfeld und im eventuell zu ergänzenden Anwendungsfall. (In beiden Fällen unter der Überschrift „Extension Point“) Im eventuell ergänzten Anwendungsfall wird dieser Hinweis unter einer gestrichelten Linie notiert.
+
+Her uzantıya bir başlık verilir (burada: "üzerini öde") Bu başlık, metin alanında ve eklenmesi gerekebilecek herhangi bir kullanım durumunda görünür. (Her iki durumda da "Uzantı Noktası" başlığı altında) Eklenmiş olabilecek herhangi bir uygulamada, bu not kesikli çizgi ile belirtilir.
+
+
+
+Kunde
+Etwas bestellen<<include>>Bestellung bezahlen - Extension Points:
+Rückgeld Kartenzahlung- 
+<<extend>> Rückgeld auszahlen -Lesegerät
+Condition: falls Barzahlung und Zahlung nicht passend 
+Extension Point: Rückgeld
+<<extend>> Karte einlesen
+Condition: falls Kartenzahlung 
+Extension Point: Kartenzahlung
+Bir şey sipariş edin<<include>>Ödeme emri - Uzatma Puanları:
+kart ödemesini değiştir
+<<extend>> Değişikliği öde -Reader
+Durum: Nakit ödeme ve ödeme uyuşmuyorsa
+Uzatma Noktası: Değiştir
+<<genişlet>> Kartı oku
+Durum: kartla ödeme varsa
+Uzatma Noktası: kartla ödeme
+
+Kunde
+Etwas bestellen<<include>>Bestellung bezahlen - Extension Points:
+Rückgeld Kartenzahlung- 
+<<extend>> Rückgeld auszahlen Lesegerät
+Condition: falls Barzahlung und Zahlung nicht passend 
+Extension Point: Rückgeld -Bedienung
+<<extend>> Karte einlesen
+Condition: falls Kartenzahlung 
+Extension Point: Kartenzahlung
+Bir şey sipariş edin<<include>>Ödeme emri - Uzatma Puanları:
+kart ödemesini değiştir
+<<extend>> değişiklik okuyucusunu öde
+Durum: Nakit ödeme ve ödeme uyuşmuyorsa
+Uzantı Noktası: Hizmeti değiştir
+<< extend >> Kartı oku
+Durum: kartla ödeme varsa
+Uzatma Noktası: kartla ödeme
+
+
+Anwendungsfälle, die durch include- oder extend-Beziehungen hinzukommen, können sich auf andere Akteure beziehen.
+Ist dies der Fall, so wird dies durch die bereits bekannte Verbindungslinie (ohne Pfeilspitze) dargestellt.
+
+Dahil etme veya genişletme ilişkileri aracılığıyla eklenen kullanım durumları, diğer aktörlere atıfta bulunabilir.
+Bu durumda, bu zaten bilinen bağlantı hattı ile temsil edilir (ok başı olmadan).
+
+Ein Pfeil mit durchgezogener Linie und dreieckiger (nicht ausgefüllter) Spitze weist auf eine Verallgemeinerung (Generalisierung).
+Generalisierungen können in der UML an vielen Stellen zur Anwendung kommen.
+In diesem ersten Beispiel geht es um die Verallgemeinerung auf den Oberbegriff Kunde, also um eine Generalisierung von Akteuren. Kunde
+Düz çizgi ve üçgen (açık) başlı bir ok, bir genellemeyi (genellemeyi) gösterir.
+Genellemeler UML'de birçok yerde kullanılabilir.
+Bu ilk örnek, jenerik müşteri terimine genelleme, yani aktörlerin genelleştirilmesi hakkındadır. müşteri
+
+Die Spezialfälle „Stammkunde“ und „Neukunde“ werden hier zum Oberbegriff „Kunde“ verallgemeinert.
+Dies macht Sinn, sofern für den Oberbegriff Anwendungsfälle gelten, die auch für alle Spezialfälle gültig sind. Stammkunde – Neukunde – Kunde
+
+"Düzenli müşteri" ve "yeni müşteri" özel durumları burada "müşteri" genel terimine genelleştirilmiştir.
+Bu, genel terim için tüm özel durumlar için de geçerli olan kullanım durumları varsa anlamlıdır. Düzenli müşteri - yeni müşteri - müşteri
+
+Spezialfälle können natürlich auch selbst Anwendungsfälle auslösen.
+Dies macht Sinn, sofern diese Anwendungsfälle nicht auch für den Oberbegriff gültig sind. 
+Neukunde : nimmt sich Info-Material für Neukunden
+Stammkunde : betritt Ehrenloge für Stammgäste
+
+Tabii ki, özel durumlar da kullanım senaryolarını tetikleyebilir.
+Bu kullanım durumları, genel terim için de geçerli değilse, bu mantıklıdır.
+Yeni müşteri: yeni müşteriler için bilgi materyali alır
+Normal : Düzenli kişiler için VIP kutusuna girer
+
+Etwas bestellen -Essen bestellen – Getränk bestellen
+
+Bir şeyler sipariş et - yemek sipariş et - içecek sipariş et
+
+Auch Anwendungsfälle können generalisiert werden.
+Hier wurden die Spezialfälle „Essen bestellen“ und „Getränk bestellen“ zum Oberbegriff „Etwas bestellen“ verallgemeinert.
+Dies macht Sinn, sofern für den Oberbegriff include- oder extend-Beziehungen gelten, die auch für jeden Spezialfall gelten.
+Sofern die Spezialfälle von den selben Akteuren wie der Oberbegriff ausgeführt werden, muss diese Beziehung nicht erneut eingezeichnet werden
+
+Kullanım durumları da genelleştirilebilir.
+Burada, "Yemek ısmarla" ve "Bir içki ısmarla" özel durumları, "Bir şey sipariş et" genel terimine genelleştirilmiştir.
+Bu, her özel durum için de geçerli olan genel terim için içerme veya genişletme ilişkileri geçerliyse anlamlıdır.
+Özel durumlar jenerik terim ile aynı aktörler tarafından yürütülüyorsa bu ilişkinin tekrar çizilmesine gerek yoktur.
+
+Etwas bestellen 
+-Essen bestellen <<include>> Essen zubereiten - Koch
+-Getränk bestellen <<include>> Getränk einschenken – Bedienung
+
+Bir şey sipariş etmek
+-Yemek siparişi <<include>> Yemek hazırlayın - pişirin
+-İçecek siparişi <<include>> içecek dökün - servis
+
+
+
+
+
+
+Auch Sonderfälle können natürlich durch include- und/oder extend-Beziehungen ergänzt werden.
+Dies macht Sinn, sofern es Beziehungen gibt, die sich nur auf einzelne Sonderfälle, nicht aber auf die Generalisierung beziehen.
+
+Tabii ki, özel durumlar da dahil etme ve/veya genişletme ilişkileri ile desteklenebilir.
+Bu, genellemeye değil, yalnızca bireysel özel durumlara atıfta bulunan ilişkiler varsa anlamlıdır.
+
+
+Erneut gilt:
+Anwendungsfälle, die durch include- oder extend-Beziehungen hinzukommen, können sich auf andere Akteure beziehen.
+Ist dies der Fall, so wird dies durch die bereits bekannte Verbindungslinie (ohne Pfeilspitze) dargestellt.
+
+Tekrar:
+Dahil etme veya genişletme ilişkileri aracılığıyla eklenen kullanım durumları, diğer aktörlere atıfta bulunabilir.
+Bu durumda, bu zaten bilinen bağlantı hattı ile temsil edilir (ok başı olmadan).
+
+
+
+
+
+ 
+
+
+
