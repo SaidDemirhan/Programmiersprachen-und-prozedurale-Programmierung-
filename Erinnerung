@@ -273,7 +273,7 @@ RAND_MAX degeri
 Eger Randomda kisitlama yapmak isteresek:
 
   Würfeln: ……. Zahl zwischen (beiderseits einschließlich) 1 und 6       : rand()%6+1
-  Lotto: ……….. Zahl zwischen (beiderseits einschließlich) 1 und 49      : rand()%49+1
+  Lotto: …….. Zahl zwischen (beiderseits einschließlich) 1 und 49      : rand()%49+1
   Allgemein: ….. Zahl zwischen (beiderseits einschließlich) a und b     : rand()%(b-a+1)+a
 
 -------------------------------------------------------------------
