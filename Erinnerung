@@ -124,7 +124,7 @@ fflush(stdin):
 
 %d : ondalik sayilar icin kullanilir. (Dezimal)
 
-----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 
 Verzweigung: (ESKENARDÖRTGEN)
   Das Sprachkonstrukt einer Programmiersprache, das (mittels der Überprüfung einer Bedingung) entscheiden kann, 
