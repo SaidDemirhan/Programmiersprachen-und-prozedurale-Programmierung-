@@ -76,7 +76,7 @@ Ein gestrichelter Pfeil (zusammen mit dem Text <<include>>) verweist auf Anwendu
 Kesikli bir ok (<<include>> metniyle birlikte) zorunlu kullanım durumlarını gösterir. Ok ucu, aşağıdaki kullanım durumunu gösterir.
 
 Kunde
-Etwas bestellen<<include>>Bestellung bezahlen <<extend>> Rückgeld auszahlen
+Etwas bestellen <<include>>Bestellung bezahlen <<extend>> Rückgeld auszahlen
 
 Bir şey sipariş edin<<include>>Sipariş için ödeme yapın <<extend>>
 Fazla verilen parayi (üstünü) geri verin.
